@@ -1,0 +1,11 @@
+{
+  "name": "gather-server",
+  "version": "1.0.0",
+  "description": "server for gather application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alistairgarioch@gmail.com",
+  "license": "ISC"
+}
