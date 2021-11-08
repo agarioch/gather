@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const { auth } = require('express-oauth2-jwt-bearer');
+const helmet = require('helmet');
 require('dotenv').config();
 
 const app = express();
@@ -15,6 +16,7 @@ const checkJwt = auth({
 
 app.use(cors());
 app.use(morgan('short'));
+app.use(helmet());
 
 app.get('/', (req, res) => res.json('test from server'));
 
