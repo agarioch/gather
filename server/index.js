@@ -16,7 +16,7 @@ const checkJwt = auth({
 app.use(cors());
 app.use(morgan('short'));
 
-app.get('/', (req, res) => res.send('<p>hello</p>'));
+app.get('/', (req, res) => res.json('test from server'));
 
 // test private route
 app.get('/private', checkJwt, function (req, res) {

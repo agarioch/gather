@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import { getPosts } from './services/gather-api';
 import './App.css';
 
 function App() {
+  const [posts, setPosts] = useState(null);
+  
+  useEffect(() => {
+    getPosts()
+      .then(res => setPosts(res))
+  }, []) 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Gather</h1>
       </header>
+      <main>
+        <p>App is working.</p>
+        <pre>
+          {posts}
+        </pre>
+      </main>
     </div>
   );
 }
