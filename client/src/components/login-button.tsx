@@ -4,7 +4,7 @@ import Button from './button/button';
 
 const LoginButton: React.FC = () => {
   const { loginWithRedirect } = useAuth0();
-  return <Button onClick={() => loginWithRedirect()}>LoginButton</Button>;
+  return <Button onClick={() => loginWithRedirect()}>Login</Button>;
 };
 
 export default LoginButton;

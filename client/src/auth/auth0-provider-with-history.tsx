@@ -1,23 +1,23 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import  { Auth0Provider } from '@auth0/auth0-react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 type Props = {
   children?: React.ReactNode;
-}
+};
 type AppState = {
   returnTo?: string;
   [key: string]: any;
 };
 
-const Auth0ProviderWithHistory = ({children}:Props) => {
+const Auth0ProviderWithHistory = ({ children }: Props) => {
   const domain = process.env.REACT_APP_AUTH0_DOMAIN || '';
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID || '';
 
-  const navigation = useNavigate();
+  const history = useHistory();
 
-  const onRedirectCallback = (appState:AppState) => {
-    navigation(appState?.returnTo || window.location.pathname)
+  const onRedirectCallback = (appState: AppState) => {
+    history.push(appState?.returnTo || window.location.pathname);
   };
 
   return (
@@ -26,9 +26,9 @@ const Auth0ProviderWithHistory = ({children}:Props) => {
       clientId={clientId}
       redirectUri={window.location.origin}
       onRedirectCallback={onRedirectCallback}
-      >
-        {children}
-      </Auth0Provider>
+    >
+      {children}
+    </Auth0Provider>
   );
 };
 
