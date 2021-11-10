@@ -8,10 +8,6 @@
   height: 3rem;
   object-fit: cover;
   overflow: hidden;
+  margin: 0 1rem;
   width: 3rem;
-}
-.profile--name {
-  color: blue;
-  font-size: 0.8rem;
-  margin-left: 0.5rem;
 }

@@ -1,0 +1,23 @@
+.header {
+  background-color: white;
+  border-bottom: 1px solid var(--grey-300);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  display: flex;
+  height: 5rem;
+  justify-content: space-between;
+  padding: 0 2rem;
+  width: 100%;
+}
+.header__logo {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+.header__logo--text {
+  color: var(--primary-700);
+  margin-left: 1rem;
+}
+.header--pull-right {
+  align-items: center;
+  display: flex;
+}

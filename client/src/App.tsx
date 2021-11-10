@@ -7,15 +7,17 @@ import Survey from './pages/survey/survey';
 import Home from './pages/home/home';
 import Feed from './pages/feed/feed';
 import ProtectedRoute from './auth/protected-route';
+import Header from './components/header/header';
+import HeaderNav from './components/header-nav/header-nav';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Gather</h1>
-        <AuthenticationButton />
+      <Header>
+        <HeaderNav />
         <Profile />
-      </header>
+        <AuthenticationButton />
+      </Header>
       <main>
         <Switch>
           <Route path="/" exact component={Home} />
