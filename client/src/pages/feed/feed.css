@@ -1,0 +1,18 @@
+.feed {
+  display: flex;
+  margin: 0 2rem;
+}
+.posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+.sidebar {
+  border-left: 1px solid var(--grey-300);
+  margin: 0rem 1rem;
+  height: calc(100vh - 6rem);
+  padding-top: 2rem;
+  padding-left: 2rem;
+  width: 12rem;
+}
