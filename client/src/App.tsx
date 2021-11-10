@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { getPosts } from './services/gather-api';
+import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import AuthenticationButton from './components/authentication-button';
 import Profile from './components/profile/profile';
+import Survey from './pages/survey/survey';
+import Home from './pages/home/home';
+import Feed from './pages/feed/feed';
 
 function App() {
-  const [posts, setPosts] = useState(null);
-
-  useEffect(() => {
-    getPosts().then((res) => setPosts(res));
-  }, []);
   return (
     <div className="App">
       <header className="App-header">
@@ -18,8 +16,11 @@ function App() {
         <Profile />
       </header>
       <main>
-        <p>App is working.</p>
-        <pre>{posts}</pre>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/survey/*" element={<Survey />} />
+        </Routes>
       </main>
     </div>
   );
