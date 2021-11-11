@@ -55,7 +55,6 @@
   font-size: 0.8rem;
   justify-content: space-between;
   margin-top: 1rem;
-  padding: 0.5rem 1rem;
   width: 100%;
 }
 .post__actions--btn {
@@ -64,10 +63,14 @@
   border-radius: 0.25rem;
   color: var(--grey-600);
   cursor: pointer;
+  padding: 0.5rem 1rem;
   transition: all 0.2s ease;
 }
 .post__actions--btn:hover {
   color: var(--primary-700);
+}
+.post__actions--none {
+  padding: 0.5rem 1rem;
 }
 .post__actions--btn:active {
   background-color: var(--primary-bg);

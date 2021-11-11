@@ -57,7 +57,7 @@ const PostItem = ({ post }: PostItemProps) => {
                 <i className={expandIconClass}></i> Show {post.replies} replies
               </button>
             ) : (
-              'No Replies'
+              <p className="post__actions--none">No Replies</p>
             )}
           </span>
           <button className="post__actions--btn">
