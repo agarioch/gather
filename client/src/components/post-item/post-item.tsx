@@ -34,22 +34,28 @@ const PostItem = ({ post }: PostItemProps) => {
         <div className="post__main">
           <div className="post__votes">
             <i className="fas fa-chevron-up"></i>
-            <h2>14</h2>
+            <h2>{post.votes}</h2>
           </div>
           <div className="post__details">
             {typeIconClass}
             <h2 className="post__details--title">{post.title}</h2>
+            {post.content && <p>{post.content}</p>}
             <p className="post__details--info">{post.author}</p>
           </div>
         </div>
+
         <div className="post__actions">
           <span>
-            <button
-              className="post__actions--btn"
-              onClick={() => setExpanded(expanded ? false : true)}
-            >
-              <i className={expandIconClass}></i> Show 3 replies
-            </button>
+            {post.replies > 0 ? (
+              <button
+                className="post__actions--btn"
+                onClick={() => setExpanded(expanded ? false : true)}
+              >
+                <i className={expandIconClass}></i> Show {post.replies} replies
+              </button>
+            ) : (
+              'No Replies'
+            )}
           </span>
           <button className="post__actions--btn">
             <i className="fas fa-comment"></i> Reply

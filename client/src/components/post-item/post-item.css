@@ -20,9 +20,16 @@
   font-size: 1.5rem;
   height: 100%;
   margin: 0 1rem;
-  padding: 1rem 2rem;
+  min-width: 7ch;
+  padding: 1rem 0;
 }
-
+.post__details {
+  margin-left: 1rem;
+  display: block;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
 .post__details--info {
   color: var(--grey-600);
   font-size: 0.9rem;
@@ -31,14 +38,19 @@
 .post__details--title {
   font-size: 1.2rem;
   font-weight: 700;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .post__actions {
-  color: var(--grey-700);
+  align-items: center;
+  color: var(--grey-500);
   display: flex;
   font-size: 0.8rem;
   justify-content: space-between;
   margin-top: 1rem;
+  padding: 0.5rem 1rem;
   width: 100%;
 }
 .post__actions--btn {
@@ -46,7 +58,6 @@
   border: none;
   border-radius: 0.25rem;
   color: var(--grey-600);
-  padding: 0.5rem 1rem;
   transition: all 0.2s ease;
 }
 .post__actions--btn:hover {
