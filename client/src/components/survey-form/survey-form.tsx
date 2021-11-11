@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { Survey } from '../../types';
 import Button from '../button/button';
 import Field from '../form-fields/form-field';
+import OptionField from '../form-fields/form-option';
 import './survey-form.css';
 
 // Question and answer types
@@ -26,7 +27,17 @@ const SurveyForm = ({ questions }: SurveyFormProps) => {
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       {questions.map((question) => {
-        switch (question.type) {
+        switch (question.component) {
+          case 'options':
+            return (
+              <OptionField
+                key={question._uid}
+                field={question}
+                type={question.type}
+                register={register}
+                error={errors[question._uid]}
+              />
+            );
           default:
             return (
               <Field

@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import './form-field.css'
+import './form-fields.css'
 
 const Field = ({ field, register, type, error }) => {
   const inputClass = classNames([

@@ -10,8 +10,9 @@ export type Post = {
 };
 
 export type Survey = {
+  _uid: string;
   component: string;
   type: string;
   label: string;
-  _uid: string;
+  options?: string[];
 };

@@ -11,6 +11,27 @@ const mockData = [
     survey: [
       { component: 'text', type: 'text', label: 'Do you like working here?', _uid: '1q01' },
       { component: 'text', type: 'text', label: 'Explain your previous answer', _uid: '1q02' },
+      {
+        component: 'options',
+        type: 'radio',
+        label: 'How would you rate the work environment?',
+        _uid: '1q03',
+        options: ['poor', 'average', 'great'],
+      },
+      {
+        component: 'options',
+        type: 'radio',
+        label: 'How likley are you to recommend our company to a friend?',
+        _uid: '1q04',
+        options: ['I wont', 'unlikley', 'maybe', 'probably', 'certainly'],
+      },
+      {
+        component: 'options',
+        type: 'radio',
+        label: 'How happy are you with your team?',
+        _uid: '1q05',
+        options: ['😡', '😟', '😒', '🙂', '😊', '😁'],
+      },
     ],
   },
   {

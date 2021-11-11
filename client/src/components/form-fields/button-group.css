@@ -1,0 +1,51 @@
+.group__container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  border-radius: 8px;
+  background-color: var(--grey-100);
+  backdrop-filter: blur(30px);
+  justify-content: space-around;
+  align-items: center;
+}
+.group__input:checked + label {
+  color: var(--primary-700);
+  font-size: 1.2rem;
+}
+
+.group__input {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+.group__label {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2px;
+  text-align: center;
+  color: var(--grey-800);
+  font-weight: 600;
+  border-radius: 6px;
+  z-index: 2;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+.group__background {
+  background-color: var(--primary-100);
+  position: absolute;
+  top: 3px;
+  left: 1px;
+  right: 1px;
+  bottom: 3px;
+  border-radius: 6px;
+  z-index: -1;
+}
