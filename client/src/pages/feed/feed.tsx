@@ -17,10 +17,7 @@ const Feed: React.FC = () => {
 
   return (
     <main className="feed">
-      <div className="posts">
-        <p>Latest posts</p>
-        {cards}
-      </div>
+      <div className="posts">{cards}</div>
       <div className="sidebar">
         <Button onClick={() => {}}>+ New Post</Button>
       </div>

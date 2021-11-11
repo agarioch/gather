@@ -1,15 +1,15 @@
-.post {
+.post__wrapper {
   display: flex;
   flex-direction: column;
   margin-left: 1rem;
   margin-right: 1rem;
 }
-.post__body {
+.post__main {
   align-items: stretch;
   display: flex;
   width: 100%;
 }
-.post__body__info {
+.post__votes {
   align-items: center;
   align-self: center;
   background-color: var(--primary-bg);
@@ -23,10 +23,14 @@
   padding: 1rem 2rem;
 }
 
-.post__body__main--info {
+.post__details--info {
   color: var(--grey-600);
   font-size: 0.9rem;
   margin: 0.5rem 0;
+}
+.post__details--title {
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .post__actions {
@@ -36,4 +40,18 @@
   justify-content: space-between;
   margin-top: 1rem;
   width: 100%;
+}
+.post__actions--btn {
+  background-color: white;
+  border: none;
+  border-radius: 0.25rem;
+  color: var(--grey-600);
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+.post__actions--btn:hover {
+  color: var(--primary-700);
+}
+.post__actions--btn:active {
+  background-color: var(--primary-bg);
 }

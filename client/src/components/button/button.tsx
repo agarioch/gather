@@ -9,10 +9,13 @@ interface Props {
 }
 
 const Button: React.FC<Props> = ({ children, onClick, type }: Props) => {
-  const btnClass = classNames({
-    btn: true,
-    'btn-secondary': type === 'secondary',
-  });
+  const btnClass = classNames([
+    'btn',
+    {
+      'btn-secondary': type === 'secondary',
+    },
+  ]);
+
   return (
     <button className={btnClass} onClick={onClick}>
       {children}

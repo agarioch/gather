@@ -3,10 +3,11 @@
   margin: 0 2rem;
 }
 .posts {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   flex-grow: 1;
+  margin-top: 2rem;
 }
 .sidebar {
   border-left: 1px solid var(--grey-300);
