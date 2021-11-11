@@ -14,3 +14,6 @@ function fetchRequest(path: string, options?: options) {
 export function getPosts() {
   return fetchRequest('/posts');
 }
+export function getPost(id: string) {
+  return fetchRequest(`/posts/${id}`);
+}

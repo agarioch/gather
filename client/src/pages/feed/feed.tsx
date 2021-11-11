@@ -3,7 +3,6 @@ import './feed.css';
 import { getPosts } from '../../services/gather-api';
 import { Post } from '../../types';
 import Button from '../../components/button/button';
-import Card from '../../components/card/card';
 import PostItem from '../../components/post-item/post-item';
 
 const Feed: React.FC = () => {
@@ -12,7 +11,6 @@ const Feed: React.FC = () => {
   useEffect(() => {
     getPosts().then((res) => setPosts(res));
   }, []);
-
   const cards = posts.map((post) => <PostItem key={post._id} post={post} />);
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence, animate } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
 import { Post } from '../../types';
 import Card from '../card/card';

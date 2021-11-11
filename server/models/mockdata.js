@@ -2,10 +2,16 @@ const mockData = [
   {
     _id: 1,
     type: 'survey',
-    title: 'This is a test survey',
+    title: 'Quarterly Employee Survey',
     author: 'alistairgarioch@gmail.com',
     replies: 3,
     votes: 7,
+    content:
+      'This is the quarterly employee survey, please share your thoughts, suggestions and ideas! 🤩',
+    survey: [
+      { component: 'text', type: 'text', label: 'Do you like working here?', _uid: '1q01' },
+      { component: 'text', type: 'text', label: 'Explain your previous answer', _uid: '1q02' },
+    ],
   },
   {
     _id: 2,

@@ -6,4 +6,12 @@ export type Post = {
   votes: number;
   replies: number;
   content?: string;
+  survey?: Survey[];
+};
+
+export type Survey = {
+  component: string;
+  type: string;
+  label: string;
+  _uid: string;
 };
