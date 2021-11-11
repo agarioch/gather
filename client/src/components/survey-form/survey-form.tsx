@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Survey } from '../../types';
-import Field from '../form-field/form-field';
+import Button from '../button/button';
+import Field from '../form-fields/form-field';
+import './survey-form.css';
 
 // Question and answer types
 type SurveyFormProps = {
@@ -18,11 +20,11 @@ const SurveyForm = ({ questions }: SurveyFormProps) => {
     watch,
     formState: { errors },
   } = useForm<Answer>();
-  const onSubmit: SubmitHandler<Answer> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Answer> = (data) => console.log('submitting', data);
   console.log(watch(questions[0]._uid));
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
       {questions.map((question) => {
         switch (question.type) {
           default:
@@ -32,10 +34,16 @@ const SurveyForm = ({ questions }: SurveyFormProps) => {
                 field={question}
                 type={question.type}
                 register={register}
+                error={errors[question._uid]}
               />
             );
         }
       })}
+      <div className="form__actions">
+        <Button type="submit">
+          <i className="fas fa-check"></i> Submit
+        </Button>
+      </div>
     </form>
   );
 };

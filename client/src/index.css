@@ -1,6 +1,7 @@
 :root {
   --primary-bg: #eff6ff;
   --primary-100: #dbeafe;
+  --primary-200: #c7d2fe;
   --primary-400: #60a5fa;
   --primary-500: #3b82f6;
   --primary-600: #2563eb;
@@ -18,6 +19,9 @@
   --grey-700: #4a5568;
   --grey-800: #2d3748;
   --grey-900: #1a202c;
+
+  --error-outline: #db2777;
+  --error-bg: #fdf2f8;
 }
 ::selection {
   background: var(--primary-100); /* WebKit/Blink Browsers */
@@ -40,8 +44,7 @@ body {
   background-color: var(--grey-50);
   color: var(--grey-900);
   margin: 0;
-  font-family: lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: lato, -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -50,17 +53,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-p,
+p {
+  margin: 0;
+}
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  font-family: poppins, -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
 }
 
 a {
   color: var(--grey-900);
   text-decoration: none;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
 }

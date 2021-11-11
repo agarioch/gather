@@ -7,7 +7,7 @@
   cursor: pointer;
   font-family: lato;
   font-weight: 600;
-  padding: 0.75rem 1.5rem;
+  padding: 0.6rem 1.5rem;
   transition: all 0.2s ease;
 }
 .btn:hover {
@@ -23,4 +23,7 @@
 .btn-secondary {
   background-color: white;
   color: var(--primary-700);
+}
+.btn:focus {
+  box-shadow: 0 0 2px #ffffff, 0 0 0 4px var(--primary-200), 0 1px 2px 0 black;
 }

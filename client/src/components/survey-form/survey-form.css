@@ -1,0 +1,5 @@
+.form__actions {
+  justify-content: flex-end;
+  display: flex;
+  margin-top: 1rem;
+}

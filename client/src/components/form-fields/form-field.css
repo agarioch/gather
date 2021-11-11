@@ -1,0 +1,29 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.field__label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  border: 1px solid var(--grey-300);
+  border-radius: 0.25rem;
+  font-weight: 400;
+  line-height: 2rem;
+  padding-left: 0.5rem;
+  transition: all 0.2s ease;
+}
+.input:focus-visible {
+  border-color: var(--primary-400);
+  box-shadow: var(--primary-400) 0px 0px 0px 1px;
+}
+.input:focus:not(:focus-visible) {
+  outline: none;
+}
+.input--error {
+  border: 1px solid var(--error-outline);
+  box-shadow: 0 0 2px #ffffff, 0 0 0 4px var(--error-bg), 0 1px 2px 0 black;
+}
