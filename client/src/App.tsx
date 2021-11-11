@@ -22,7 +22,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <ProtectedRoute path="/feed" component={Feed} />
-          <ProtectedRoute path="/survey" exact component={Survey} />
+          <ProtectedRoute path="/survey/:id" exact component={Survey} />
         </Switch>
       </main>
     </div>
