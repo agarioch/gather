@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Card from '../../components/card/card';
 import Loader from '../../components/loader/loader';
 import { getPost } from '../../services/gather-api';
+import SurveyForm from '../../components/survey-form/survey-form';
 import { Post } from '../../types';
 import './survey-page.css';
 
@@ -21,14 +22,12 @@ const SurveyPage: React.FC = () => {
   return (
     <div className="survey">
       <Card>
-        <form>
+        <div>
           <h2>{post.title}</h2>
           <p>{post.content}</p>
           <br />
-          <div className="json">
-            <code>{JSON.stringify(post)}</code>
-          </div>
-        </form>
+          {post.survey && <SurveyForm questions={post.survey} />}
+        </div>
       </Card>
     </div>
   );
