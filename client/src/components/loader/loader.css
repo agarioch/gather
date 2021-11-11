@@ -1,5 +1,7 @@
-.loader {
+.loading-wrapper {
   position: fixed;
   top: 40%;
+  text-align: center;
   left: 50%;
+  color: var(--primary-700);
 }
