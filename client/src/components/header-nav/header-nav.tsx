@@ -21,7 +21,9 @@ const HeaderNav = () => (
         </Link>
       </li>
       <li className="nav__item-container">
-        <p className="nav__item">About</p>
+        <Link to="/about" className="nav__item">
+          About
+        </Link>
       </li>
     </ul>
   </nav>

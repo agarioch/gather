@@ -9,6 +9,8 @@ import Feed from './pages/feed/feed';
 import ProtectedRoute from './auth/protected-route';
 import Header from './components/header/header';
 import HeaderNav from './components/header-nav/header-nav';
+import CreateSurvey from './pages/create-survey/create-survey';
+import About from './pages/about/about';
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <ProtectedRoute path="/feed" component={Feed} />
+          <ProtectedRoute path="/survey" exact component={CreateSurvey} />
           <ProtectedRoute path="/survey/:id" exact component={SurveyPage} />
+          <ProtectedRoute path="/about" exact component={About} />
         </Switch>
       </main>
     </div>

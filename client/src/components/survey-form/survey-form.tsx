@@ -18,11 +18,9 @@ const SurveyForm = ({ questions }: SurveyFormProps) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Answer>();
   const onSubmit: SubmitHandler<Answer> = (data) => console.log('submitting', data);
-  console.log(watch(questions[0]._uid));
 
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
@@ -42,9 +40,11 @@ const SurveyForm = ({ questions }: SurveyFormProps) => {
             return (
               <Field
                 key={question._uid}
-                field={question}
+                id={question._uid}
+                label={question.label}
                 type={question.type}
                 register={register}
+                validation={{ required: true }}
                 error={errors[question._uid]}
               />
             );

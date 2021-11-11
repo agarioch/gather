@@ -4,7 +4,7 @@ import './button.css';
 
 interface Props {
   children?: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e?: any) => void;
   type?: string;
   style?: { [key: string]: string };
 }
