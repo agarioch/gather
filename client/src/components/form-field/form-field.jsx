@@ -1,6 +1,6 @@
 import React from "react";
 
-const Field = ({ field, fieldChanged, type, value }) => {
+const Field = ({ field, register, type }) => {
   return (
     <div className="field" key={field._uid}>
       <label htmlFor={field._uid}>{field.label}</label>
@@ -8,8 +8,7 @@ const Field = ({ field, fieldChanged, type, value }) => {
         type={type}
         id={field._uid}
         name={field._uid}
-        value={value}
-        onChange={event => fieldChanged(field._uid, event.target.value)}
+        {...register(field._uid)}
       />
     </div>
   )

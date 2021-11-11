@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { Survey } from '../../types';
 import Field from '../form-field/form-field';
 
+// Question and answer types
 type SurveyFormProps = {
   questions: Survey[];
 };
@@ -10,30 +12,17 @@ type Answer = {
 };
 
 const SurveyForm = ({ questions }: SurveyFormProps) => {
-  const [answers, setAnswers] = useState<Answer>({});
-
-  useEffect(() => {
-    const questionIds = questions.map((q) => q._uid);
-    const initAnswers = questionIds.reduce<Answer>(
-      (acc, curr: string) => ((acc[curr] = ''), acc),
-      {}
-    );
-    setAnswers(initAnswers);
-  }, [questions]);
-
-  const onSubmit = (event: React.SyntheticEvent) => {
-    event.preventDefault();
-  };
-
-  const answerChanged = (fieldId: string, value: string) => {
-    setAnswers((priorAnswers) => {
-      const newAnswers = Object.assign({}, priorAnswers, { [fieldId]: value });
-      return newAnswers;
-    });
-  };
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Answer>();
+  const onSubmit: SubmitHandler<Answer> = (data) => console.log(data);
+  console.log(watch(questions[0]._uid));
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       {questions.map((question) => {
         switch (question.type) {
           default:
@@ -42,8 +31,7 @@ const SurveyForm = ({ questions }: SurveyFormProps) => {
                 key={question._uid}
                 field={question}
                 type={question.type}
-                fieldChanged={answerChanged}
-                value={answers[question._uid]}
+                register={register}
               />
             );
         }
