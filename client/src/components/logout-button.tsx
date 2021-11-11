@@ -8,6 +8,7 @@ const LogoutButton: React.FC = () => {
     <Button
       type="secondary"
       onClick={() => logout({ returnTo: window.location.origin })}
+      style={{ width: '6rem' }}
     >
       Logout
     </Button>

@@ -4,7 +4,11 @@ import Button from './button/button';
 
 const LoginButton: React.FC = () => {
   const { loginWithRedirect } = useAuth0();
-  return <Button onClick={() => loginWithRedirect()}>Login</Button>;
+  return (
+    <Button onClick={() => loginWithRedirect()} style={{ width: '6rem' }}>
+      Login
+    </Button>
+  );
 };
 
 export default LoginButton;

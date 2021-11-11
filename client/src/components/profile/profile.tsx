@@ -12,7 +12,7 @@ const Profile: React.FC = () => {
       </div>
     );
   } else {
-    return <></>;
+    return <div className="profile"> </div>;
   }
 };
 
