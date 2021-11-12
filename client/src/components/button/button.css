@@ -24,6 +24,26 @@
   background-color: white;
   color: var(--primary-700);
 }
+.btn-tertiary {
+  background-color: white;
+  border-color: white;
+  box-shadow: none;
+  color: var(--primary-700);
+  padding: 0.3rem 1rem;
+}
 .btn:focus {
   box-shadow: 0 0 2px #ffffff, 0 0 0 4px var(--primary-200), 0 1px 2px 0 black;
+}
+.btn-tertiary:hover {
+  background-color: var(--primary-bg);
+  border-color: var(--primary-bg);
+  color: var(--primary-800);
+}
+.btn-tertiary:active {
+  background-color: var(--primary-100);
+  border-color: var(--primary-100);
+  color: var(--primary-800);
+}
+.btn-tertiary:focus {
+  box-shadow: 0 0 1px #ffffff, 0 0 0 2px var(--primary-100), 0 1px 2px 0 black;
 }

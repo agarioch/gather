@@ -14,6 +14,7 @@ const Button: React.FC<Props> = ({ children, onClick, type, style }: Props) => {
     'btn',
     {
       'btn-secondary': type === 'secondary',
+      'btn-tertiary': type === 'tertiary',
     },
   ]);
 

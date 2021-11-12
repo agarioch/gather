@@ -12,14 +12,13 @@ const QuestionCounter = ({ control }: QuestionCounterProps) => {
     control,
     name: 'questions',
   });
-  console.log(count);
 
   if (count?.length) {
     return (
       <div className="progress__wrapper">
         <p className="progress__info">
-          <span className="progress__count">{count.length}</span> questions (we recommend max 10
-          questions)
+          <span className="progress__count">{count.length}</span> questions (we recommend max 10 per
+          survey)
         </p>
         <div className="progress__bar">
           <motion.span
