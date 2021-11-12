@@ -1,10 +1,9 @@
+import classNames from 'classnames';
 import React, { useState } from 'react';
 import { useForm, SubmitHandler, useWatch, useFieldArray } from 'react-hook-form';
-import { v4 as uuid } from 'uuid';
-import { Survey } from '../../types';
 import Button from '../button/button';
-import CreateQuestionField from '../form-fields/create-question-field';
 import Field from '../form-fields/form-field';
+import QuestionCounter from '../question-counter/question-counter';
 import './create-survey-form.css';
 
 const CreateSurveyFrom = () => {
@@ -12,17 +11,17 @@ const CreateSurveyFrom = () => {
     register,
     control,
     reset,
-    watch,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'questions',
-    keyName: 'id'
+    name: 'questions'
   });
-  const onSubmit = (data) => console.log('data', data);
-  console.log(watch());
+  const onSubmit = (data) => {
+    console.log('data', data);
+    reset();
+  }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Field
@@ -41,32 +40,40 @@ const CreateSurveyFrom = () => {
         validation={{ required: true }}
         error={errors.desc}
       />
-
+      <QuestionCounter control={control} />
       {fields.map((item, index) => {
+        const inputClasses = classNames([
+          'input',
+          { 'input--error': errors.questions && !!errors.questions[index] }
+        ])
         return (
           <div className="field-group" key={item.id}>
             <div className="field">
-              <label className="field__label" htmlFor={`questions.${item.id}.question`}>
+              <label className="field__label" htmlFor={`questions.${index}.question`}>
                 Question {index + 1}
               </label>
-              <input className="input" {...register(`questions.${item.id}.question`)} />
+              <input className={inputClasses} {...register(`questions.${index}.question`, { required: true })} defaultValue={item.name} placeholder="Question text..." />
             </div>
             <div className="field field--left">
-              <label className="field__label" htmlFor={`questions.${item.id}.type`}>
+              <label className="field__label" htmlFor={`questions.${index}.type`}>
                 Type
               </label>
-              <select className="input" {...register(`questions.${item.id}.type`)} defaultValue='10' >
+              <select className="input" {...register(`questions.${index}.type`)} defaultValue='text'  >
                 <option value="text">Text</option>
                 <option value="options">Choice</option>
               </select>
             </div>
-            <button type="button" onClick={() => remove(index)}>Remove</button>
+            <div className="field__controls">
+              <button className="input__delete" type="button" onClick={() => remove(index)} alt="delete"><i className="fas fa-trash"></i></button>
+            </div>
           </div>
         );
       })}
-      <button type="button" onClick={() => append({})}>
-        <i className="fas fa-plus"></i> Add a Question
-      </button>
+      <div className="form__add">
+        <Button type="secondary" onClick={() => append({ question: '', type: 'text' })}>
+          <i className="fas fa-plus"></i> Add a Question
+        </Button>
+      </div>
       <div className="form__actions">
         <Button type="submit">
           <i className="fas fa-check"></i> Submit
@@ -134,4 +141,5 @@ const CreateSurveyFrom = () => {
 };
 
 export default CreateSurveyFrom;
+
 

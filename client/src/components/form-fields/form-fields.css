@@ -16,12 +16,16 @@
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
+.field__controls {
+  align-items: center;
+  display: flex;
+  margin: 1rem;
+}
 .field--left {
   margin-left: 1rem;
   min-width: 4rem;
   flex-grow: 0.4;
 }
-
 .input {
   border: 1px solid var(--grey-300);
   border-radius: 0.25rem;
@@ -41,6 +45,27 @@
 .input--error {
   border: 1px solid var(--error-outline);
   box-shadow: 0 0 2px #ffffff, 0 0 0 4px var(--error-bg), 0 1px 2px 0 black;
+}
+.input__delete {
+  background-color: var(--grey-50);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--grey-600);
+  height: 2rem;
+  margin-top: 1rem;
+  transition: 0.15s all ease;
+  width: 2rem;
+}
+.input__delete:hover {
+  background-color: var(--error-bg);
+  color: var(--error-outline);
+  transform: scale(1.1);
+}
+.input__delete:active {
+  background-color: var(--error-bg);
+  color: var(--error-dark);
+  transform: scale(1.05);
 }
 .input--error:focus-visible {
   border: 1px solid var(--error-outline);
