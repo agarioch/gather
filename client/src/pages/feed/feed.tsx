@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import './feed.css';
-import { getPosts } from '../../services/gather-api';
-import { Post } from '../../types';
+import useGetPosts from '../../hooks/useGetPosts';
 import Button from '../../components/button/button';
 import PostItem from '../../components/post-item/post-item';
+import Loader from '../../components/loader/loader';
 
 const Feed: React.FC = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const postsQuery = useGetPosts();
 
-  useEffect(() => {
-    getPosts().then((res) => setPosts(res));
-  }, []);
-  const cards = posts?.map((post) => <PostItem key={post._id} post={post} />);
+  const cards = postsQuery.isSuccess ? (
+    postsQuery.data.map((post) => <PostItem key={post._id} post={post} />)
+  ) : (
+    <Loader />
+  );
 
   return (
     <main className="feed">

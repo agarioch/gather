@@ -5,6 +5,7 @@ import { Post } from '../../types';
 import Card from '../card/card';
 import './post-item.css';
 import { Link } from 'react-router-dom';
+import usePostUpvote from '../../hooks/usePostUpvote';
 
 type PostItemProps = {
   post: Post;
@@ -12,6 +13,8 @@ type PostItemProps = {
 
 const PostItem = ({ post }: PostItemProps) => {
   const [expanded, setExpanded] = useState(false);
+  // @ts-ignore
+  const { mutate } = usePostUpvote();
 
   const expandIconClass = classNames([
     'fas',
@@ -33,10 +36,10 @@ const PostItem = ({ post }: PostItemProps) => {
     <Card type={post.type}>
       <div className="post__wrapper">
         <div className="post__main">
-          <div className="post__votes">
+          <button className="post__votes" onClick={(e) => mutate(post._id)}>
             <i className="fas fa-chevron-up"></i>
             <h2>{post.votes}</h2>
-          </div>
+          </button>
           <div className="post__details">
             {typeIconClass}
             <Link to={`/survey/${post._id}`}>

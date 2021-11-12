@@ -17,3 +17,9 @@ export function getPosts() {
 export function getPost(id: string) {
   return fetchRequest(`/posts/${id}`);
 }
+
+export function postUpvote(id: string) {
+  return fetchRequest(`/posts/${id}/upvote`, {
+    method: 'POST',
+  });
+}
