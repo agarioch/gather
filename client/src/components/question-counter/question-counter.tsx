@@ -17,14 +17,25 @@ const QuestionCounter = ({ control }: QuestionCounterProps) => {
     return (
       <div className="progress__wrapper">
         <p className="progress__info">
-          <span className="progress__count">{count.length}</span> questions (we recommend max 10 per
-          survey)
+          <span
+            className="progress__count"
+            style={{
+              color: count.length > 10 ? 'var(--error-outline)' : 'var(--primary-700)',
+            }}
+          >
+            {count.length}
+          </span>{' '}
+          question
+          {count.length > 1 ? 's' : ''} (we recommend max 10 per survey)
         </p>
         <div className="progress__bar">
           <motion.span
             className="progress__bar--filled"
             animate={{ width: `${(count.length / 20) * 100}%` }}
             initial={{ width: 0 }}
+            style={{
+              backgroundColor: count.length > 10 ? 'var(--error-outline)' : 'var(--primary-700)',
+            }}
           ></motion.span>
         </div>
       </div>
