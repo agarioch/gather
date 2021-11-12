@@ -23,6 +23,10 @@
   --error-outline: #db2777;
   --error-bg: #fdf2f8;
   --error-dark: #be185d;
+
+  --success-bg: hsl(171, 76%, 87%);
+  --success-outline: hsl(171, 70%, 40%);
+  --success-dark: hsl(170, 64%, 20%);
 }
 ::selection {
   background: var(--primary-100); /* WebKit/Blink Browsers */

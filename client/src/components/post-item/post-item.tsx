@@ -31,15 +31,35 @@ const PostItem = ({ post }: PostItemProps) => {
         <i className="fas fa-lightbulb"></i> Idea
       </p>
     );
+  const upvoteIcon = {
+    hover: { y: '-5px', transition: { yoyo: Infinity } },
+    tap: { scale: 1 },
+  };
+  const upvoteButton = {
+    hover: {
+      scale: 1.05,
+      color: 'var(--success-dark)',
+      backgroundColor: 'var(--success-bg)',
+    },
+  };
+  const upvoteCount = {
+    tap: { y: '100%', opactity: 0 },
+  };
 
   return (
     <Card type={post.type}>
       <div className="post__wrapper">
         <div className="post__main">
-          <button className="post__votes" onClick={(e) => mutate(post._id)}>
-            <i className="fas fa-chevron-up"></i>
-            <h2>{post.votes}</h2>
-          </button>
+          <motion.div whileHover="hover" whileTap="tap" className="post__votes--wrapper">
+            <motion.button
+              className="post__votes"
+              onClick={(e) => mutate(post._id)}
+              variants={upvoteButton}
+            >
+              <motion.i className="fas fa-chevron-up" variants={upvoteIcon}></motion.i>
+              <motion.h2 variants={upvoteCount}>{post.votes}</motion.h2>
+            </motion.button>
+          </motion.div>
           <div className="post__details">
             {typeIconClass}
             <Link to={`/survey/${post._id}`}>
