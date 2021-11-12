@@ -20,11 +20,17 @@ const CreateSurveyFrom: React.FC = () => {
   const [questions, setQuestions] = useState<CreateQuestion[]>([]);
   const {
     register,
+    reset,
+    watch,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit: SubmitHandler<Survey> = (data) => console.log('submitting', data);
+  const onSubmit: SubmitHandler<Survey> = (data) => {
+    console.log(data);
+    reset();
+    setQuestions([]);
+  };
   const onAdd = (event: React.SyntheticEvent) => {
     event.preventDefault();
     const position = questions.length;
@@ -59,7 +65,10 @@ const CreateSurveyFrom: React.FC = () => {
             key={question.id}
             id={question.id}
             register={register}
+            validation={{ required: true }}
             order={question.order}
+            error={errors}
+            watch={watch}
           />
         ))}
       <div className="form__add">

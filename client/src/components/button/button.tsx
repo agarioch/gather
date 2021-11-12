@@ -17,7 +17,7 @@ const Button: React.FC<Props> = ({ children, onClick, type, style }: Props) => {
     },
   ]);
 
-  const actionType = type === 'submit' ? 'submit' : undefined;
+  const actionType = type === 'submit' ? 'submit' : 'button';
 
   return (
     <button className={btnClass} onClick={onClick} style={style} type={actionType}>

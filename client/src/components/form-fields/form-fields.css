@@ -42,6 +42,10 @@
   border: 1px solid var(--error-outline);
   box-shadow: 0 0 2px #ffffff, 0 0 0 4px var(--error-bg), 0 1px 2px 0 black;
 }
+.input--error:focus-visible {
+  border: 1px solid var(--error-outline);
+  box-shadow: 0 0 2px #ffffff, 0 0 0 4px var(--error-bg), 0 1px 2px 0 black;
+}
 .field__options {
   align-items: flex-start;
   border: 1px solid var(--grey-300);
