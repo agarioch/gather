@@ -1,11 +1,20 @@
 export type Post = {
   _id: string;
-  type: string;
-  title?: string;
+  type: 'text' | 'survey';
+  title: string;
   author: string;
   votes: number;
   replies: Reply[];
-  content?: string;
+  content: string;
+  survey?: Survey[];
+};
+export type PostReq = {
+  type: 'text' | 'survey';
+  title: string;
+  author: string;
+  votes: number;
+  replies: Reply[];
+  content: string;
   survey?: Survey[];
 };
 

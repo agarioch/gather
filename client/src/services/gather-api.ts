@@ -1,5 +1,5 @@
-import { useAuth0 } from '@auth0/auth0-react';
-import { Reply } from '../types';
+// import { useAuth0 } from '@auth0/auth0-react';
+import { PostReq, Reply } from '../types';
 
 const URL = process.env.REACT_APP_SERVER_URL;
 
@@ -9,6 +9,10 @@ function fetchRequest(path: string, options?: options) {
   return fetch(URL + path, options)
     .then((res) => (res.status < 400 ? res : Promise.reject(res)))
     .then((res) => (res.status !== 204 ? res.json() : res))
+    .then((res) => {
+      console.log(res);
+      return res;
+    })
     .catch((err) => console.error(err));
 }
 
@@ -28,5 +32,13 @@ export function postReply(id: string, reply: Reply) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(reply),
+  });
+}
+export function postPost(post: PostReq) {
+  console.log(JSON.stringify(post));
+  return fetchRequest('/posts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(post),
   });
 }
