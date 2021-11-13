@@ -18,7 +18,7 @@ const Auth0ProviderWithHistory = ({ children }: Props) => {
   const history = useHistory();
 
   const onRedirectCallback = (appState: AppState) => {
-    history.push(appState?.returnTo || window.location.pathname);
+    history.push(appState?.returnTo || window.location.pathname + 'feed/');
   };
 
   return (

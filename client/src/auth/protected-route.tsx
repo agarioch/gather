@@ -11,6 +11,7 @@ const ProtectedRoute = ({ component, ...args }) => {
     <Route
       component={withAuthenticationRequired(component, {
         onRedirecting: () => <Loader />,
+        returnTo: '/feed',
       })}
       {...args}
     />
