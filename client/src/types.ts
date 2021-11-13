@@ -4,7 +4,7 @@ export type Post = {
   title?: string;
   author: string;
   votes: number;
-  replies: number;
+  replies: Reply[];
   content?: string;
   survey?: Survey[];
 };

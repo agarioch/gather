@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllPosts, getPost, upvotePost } = require('./controllers/survey.controller');
+const { getAllPosts, getPost, upvotePost, addReply } = require('./controllers/survey.controller');
 // TODO: Implement ability to authenticate client
 // const checkJwt = require('./middleware/auth.middleware');
 
@@ -13,5 +13,6 @@ router.get('/posts', getAllPosts);
 // router.post('/survey', postSurvey);
 router.get('/posts/:id', getPost);
 router.post('/posts/:id/upvote', upvotePost);
+router.post('/posts/:id/reply', addReply);
 
 module.exports = router;

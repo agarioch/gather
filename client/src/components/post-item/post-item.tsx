@@ -86,12 +86,12 @@ const PostItem = ({ post }: PostItemProps) => {
 
         <div className="post__actions">
           <span>
-            {post.replies > 0 ? (
+            {post.replies.length > 0 ? (
               <button
                 className="post__actions--btn"
                 onClick={() => setExpanded(expanded ? false : true)}
               >
-                <i className={expandIconClass}></i> Show {post.replies} replies
+                <i className={expandIconClass}></i> Show {post.replies.length} replies
               </button>
             ) : (
               <p className="post__actions--none">No Replies</p>
@@ -115,11 +115,7 @@ const PostItem = ({ post }: PostItemProps) => {
                   handleReply={handleSubmitReply}
                 />
               )}
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
+              <code>{JSON.stringify(post.replies)}</code>
             </motion.div>
           )}
         </AnimatePresence>

@@ -1,4 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import { Reply } from '../types';
 
 const URL = process.env.REACT_APP_SERVER_URL;
 
@@ -17,9 +18,15 @@ export function getPosts() {
 export function getPost(id: string) {
   return fetchRequest(`/posts/${id}`);
 }
-
 export function postUpvote(id: string) {
   return fetchRequest(`/posts/${id}/upvote`, {
     method: 'POST',
+  });
+}
+export function postReply(id: string, reply: Reply) {
+  return fetchRequest(`/posts/${id}/reply`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(reply),
   });
 }

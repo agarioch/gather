@@ -11,5 +11,12 @@ db.Survey.upvotePost = (id) => {
   mockData[postIndex].votes++;
   return db.Survey.getPost(id);
 };
+db.Survey.addReply = (id, reply) => {
+  const numId = parseInt(id);
+  const findId = (el) => el._id === parseInt(numId);
+  const postIndex = mockData.findIndex(findId);
+  mockData[postIndex].replies.push(reply);
+  return db.Survey.getPost(id);
+};
 
 module.exports = db;

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import './reply-form.css';
 import Button from '../button/button';
+import usePostReply from '../../hooks/usePostReply';
 
 type ReplyFormProps = {
   postId: string;
@@ -15,6 +16,8 @@ type ReplyMessage = {
 };
 
 const ReplyForm = ({ postId, handleCancel, handleReply }: ReplyFormProps) => {
+  const { mutate } = usePostReply();
+
   const {
     register,
     reset,
@@ -23,7 +26,13 @@ const ReplyForm = ({ postId, handleCancel, handleReply }: ReplyFormProps) => {
   } = useForm();
   const onSubmit: SubmitHandler<ReplyMessage> = (data) => {
     console.log('replying:', data.reply);
-    console.log({ reply: data.reply, author: 'me', time: 'now' });
+    console.log({
+      reply: data.reply,
+      author: 'alistair.garioch@gmail.com',
+      time: new Date().getUTCDate(),
+    });
+    const reply = { content: data.reply, author: 'alistair.garioch@gmail.com', date: Date() };
+    mutate({ id: postId, reply });
     reset();
     handleReply();
   };

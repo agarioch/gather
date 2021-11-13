@@ -19,6 +19,7 @@ const checkJwt = auth({
 app.use(cors());
 app.use(morgan('short'));
 app.use(helmet());
+app.use(express.json());
 app.use('/', router);
 
 // test private route
