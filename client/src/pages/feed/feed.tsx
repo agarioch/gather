@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './feed.css';
 import useGetPosts from '../../hooks/useGetPosts';
 import Button from '../../components/button/button';
@@ -9,7 +9,9 @@ const Feed: React.FC = () => {
   const postsQuery = useGetPosts();
 
   const cards = postsQuery.isSuccess ? (
-    postsQuery.data.map((post) => <PostItem key={post._id} post={post} />)
+    postsQuery.data
+      .sort((a, b) => b.votes - a.votes)
+      .map((post) => <PostItem key={post._id} post={post} />)
   ) : (
     <Loader />
   );

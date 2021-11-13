@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Survey } from '../../types';
 import Button from '../button/button';
 import Field from '../form-fields/form-field';
 import OptionField from '../form-fields/form-option';
 import './survey-form.css';
+import Success from '../success/success';
 
 // Question and answer types
 type SurveyFormProps = {
@@ -15,12 +17,23 @@ type Answer = {
 };
 
 const SurveyForm = ({ questions }: SurveyFormProps) => {
+  const [submitting, setSubmitting] = useState(false);
+  const history = useHistory();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<Answer>();
-  const onSubmit: SubmitHandler<Answer> = (data) => console.log('submitting', data);
+  const onSubmit: SubmitHandler<Answer> = (data) => {
+    console.log('submitting', data);
+    reset();
+    setSubmitting(true);
+    setTimeout(() => {
+      setSubmitting(false);
+      history.push('/feed');
+    }, 1000);
+  };
 
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
@@ -55,6 +68,7 @@ const SurveyForm = ({ questions }: SurveyFormProps) => {
           <i className="fas fa-check"></i> Submit
         </Button>
       </div>
+      {submitting && <Success />}
     </form>
   );
 };

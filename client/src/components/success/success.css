@@ -1,0 +1,19 @@
+.success__wrapper {
+  position: fixed;
+  top: 40%;
+  text-align: center;
+  left: 50%;
+}
+.success__bg {
+  position: absolute;
+  background-color: var(--primary-700);
+  border-radius: 50%;
+  justify-content: center;
+  top: 0;
+  height: 200px;
+  width: 200px;
+}
+.success__icon {
+  color: var(--primary-bg);
+  position: absolute;
+}
