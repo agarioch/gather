@@ -35,7 +35,7 @@ const CreateOptions = ({ parentIndex, control, register }) => {
         }
         }
       >
-        <i class="fas fa-plus"></i> Option
+        <i className="fas fa-plus"></i> Option
       </Button>
     </div>
   );

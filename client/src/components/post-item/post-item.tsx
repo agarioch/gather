@@ -6,6 +6,7 @@ import Card from '../card/card';
 import './post-item.css';
 import { Link } from 'react-router-dom';
 import usePostUpvote from '../../hooks/usePostUpvote';
+import ReplyForm from '../reply-form/reply-form';
 
 type PostItemProps = {
   post: Post;
@@ -13,14 +14,22 @@ type PostItemProps = {
 
 const PostItem = ({ post }: PostItemProps) => {
   const [expanded, setExpanded] = useState(false);
-  // @ts-ignore
+  const [replying, setReplying] = useState(false);
   const { mutate } = usePostUpvote();
 
-  const expandIconClass = classNames([
-    'fas',
-    { 'fa-chevron-down': expanded },
-    { 'fa-chevron-up': !expanded },
-  ]);
+  const handleReply = () => {
+    setExpanded(true);
+    setReplying(!replying);
+  };
+  const handleCancelReply = () => {
+    setExpanded(true);
+    setReplying(false);
+  };
+  const handleSubmitReply = () => {
+    setReplying(false);
+  };
+
+  // CSS classes and Framer Motion Animation variants
   const typeIconClass =
     post.type === 'survey' ? (
       <p className="post__details--info">
@@ -31,6 +40,11 @@ const PostItem = ({ post }: PostItemProps) => {
         <i className="fas fa-lightbulb"></i> Idea
       </p>
     );
+  const expandIconClass = classNames([
+    'fas',
+    { 'fa-chevron-down': expanded },
+    { 'fa-chevron-up': !expanded },
+  ]);
   const upvoteIcon = {
     hover: { y: '-5px', transition: { yoyo: Infinity } },
     tap: { scale: 1 },
@@ -83,7 +97,7 @@ const PostItem = ({ post }: PostItemProps) => {
               <p className="post__actions--none">No Replies</p>
             )}
           </span>
-          <button className="post__actions--btn">
+          <button className="post__actions--btn" onClick={handleReply}>
             <i className="fas fa-comment"></i> Reply
           </button>
         </div>
@@ -94,6 +108,13 @@ const PostItem = ({ post }: PostItemProps) => {
               initial={{ y: '-20%', opacity: 0 }}
               animate={{ opacity: 1, y: 0 }}
             >
+              {replying && (
+                <ReplyForm
+                  postId={post._id}
+                  handleCancel={handleCancelReply}
+                  handleReply={handleSubmitReply}
+                />
+              )}
               <ul>
                 <li>One</li>
                 <li>Two</li>

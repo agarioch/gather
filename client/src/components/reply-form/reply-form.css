@@ -1,0 +1,11 @@
+.reply {
+  margin: 1rem;
+}
+.reply__input {
+  background-color: var(--grey-50);
+  border: 1px solid var(--grey-300);
+  border-radius: 0.25rem;
+}
+.reply__controls {
+  margin-top: 0.5rem;
+}

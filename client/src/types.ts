@@ -16,3 +16,9 @@ export type Survey = {
   label: string;
   options?: string[];
 };
+
+export type Reply = {
+  author: string;
+  content: string;
+  date: string;
+};

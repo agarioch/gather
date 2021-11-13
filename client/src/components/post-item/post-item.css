@@ -26,6 +26,7 @@
 .post__votes--wrapper {
   align-self: center;
   margin: 0 1rem;
+  position: relative;
 }
 .post__details {
   margin-left: 1rem;
