@@ -1,4 +1,4 @@
-const mockData = [
+const mockPosts = [
   {
     _id: 1,
     type: 'survey',
@@ -65,4 +65,6 @@ const mockData = [
   },
 ];
 
-module.exports = mockData;
+const mockAnswers = [];
+
+module.exports = { mockPosts, mockAnswers };

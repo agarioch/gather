@@ -17,7 +17,6 @@ export type PostReq = {
   content: string;
   survey?: Survey[];
 };
-
 export type Survey = {
   _uid: string;
   component: string;
@@ -25,9 +24,18 @@ export type Survey = {
   label: string;
   options?: string[];
 };
-
 export type Reply = {
   author: string;
   content: string;
   date: string;
+};
+export type Response = {
+  user_id: string;
+  survey_id: string;
+  author_name: string;
+  answers: Answer[];
+};
+type Answer = {
+  question_id: string;
+  answer: string;
 };

@@ -66,5 +66,18 @@ async function addPost(req, res) {
     res.end();
   }
 }
+async function addAnswer(req, res) {
+  try {
+    const answer = req.body;
+    const queryRes = await db.Survey.addAnswer(answer);
+    res.status(201);
+    res.send(JSON.stringify(queryRes));
+    res.end();
+  } catch (error) {
+    console.error(error);
+    res.setStatus(500);
+    res.end();
+  }
+}
 
-module.exports = { getAllPosts, getPost, upvotePost, addReply, addPost };
+module.exports = { getAllPosts, getPost, upvotePost, addReply, addPost, addAnswer };

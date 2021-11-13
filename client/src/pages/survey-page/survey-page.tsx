@@ -26,7 +26,7 @@ const SurveyPage: React.FC = () => {
           <h2>{post.title}</h2>
           <p>{post.content}</p>
           <br />
-          {post.survey && <SurveyForm questions={post.survey} />}
+          {post.survey && <SurveyForm id={id} questions={post.survey} />}
         </div>
       </Card>
     </div>

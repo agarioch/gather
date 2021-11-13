@@ -1,24 +1,30 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import { useAuth0 } from '@auth0/auth0-react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { Survey } from '../../types';
+import { Response, Survey } from '../../types';
 import Button from '../button/button';
 import Field from '../form-fields/form-field';
 import OptionField from '../form-fields/form-option';
 import './survey-form.css';
 import Success from '../success/success';
+import usePostResponse from '../../hooks/usePostResponse';
 
 // Question and answer types
 type SurveyFormProps = {
+  id: string;
   questions: Survey[];
 };
 type Answer = {
   [key: string]: string;
 };
 
-const SurveyForm = ({ questions }: SurveyFormProps) => {
+const SurveyForm = ({ id, questions }: SurveyFormProps) => {
   const [submitting, setSubmitting] = useState(false);
   const history = useHistory();
+  const { mutate } = usePostResponse();
+  const { user } = useAuth0();
+
   const {
     register,
     handleSubmit,
@@ -27,6 +33,15 @@ const SurveyForm = ({ questions }: SurveyFormProps) => {
   } = useForm<Answer>();
   const onSubmit: SubmitHandler<Answer> = (data) => {
     console.log('submitting', data);
+    const response: Response = {
+      survey_id: id,
+      user_id: 'test',
+      author_name: user?.name || 'Anon',
+      answers: Object.keys(data).map((key) => {
+        return { question_id: key, answer: data[key] };
+      }),
+    };
+    mutate({ id, response });
     reset();
     setSubmitting(true);
     setTimeout(() => {

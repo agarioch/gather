@@ -1,5 +1,5 @@
 // import { useAuth0 } from '@auth0/auth0-react';
-import { PostReq, Reply } from '../types';
+import { Response, PostReq, Reply } from '../types';
 
 const URL = process.env.REACT_APP_SERVER_URL;
 
@@ -35,10 +35,16 @@ export function postReply(id: string, reply: Reply) {
   });
 }
 export function postPost(post: PostReq) {
-  console.log(JSON.stringify(post));
   return fetchRequest('/posts', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(post),
+  });
+}
+export function postResponse(surveyId: string, response: Response) {
+  return fetchRequest(`/posts/${surveyId}/submit`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(response),
   });
 }

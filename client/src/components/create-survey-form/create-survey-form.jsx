@@ -62,7 +62,6 @@ const CreateSurveyFrom = () => {
       replies: [],
       survey: createSurvey(data.questions)
     }
-    console.log('data', JSON.stringify(newPost));
     mutate({ post: newPost });
     reset();
   }

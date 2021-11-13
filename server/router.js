@@ -5,6 +5,7 @@ const {
   upvotePost,
   addReply,
   addPost,
+  addAnswer,
 } = require('./controllers/survey.controller');
 // TODO: Implement ability to authenticate client
 // const checkJwt = require('./middleware/auth.middleware');
@@ -21,5 +22,6 @@ router.post('/posts', addPost);
 router.get('/posts/:id', getPost);
 router.post('/posts/:id/upvote', upvotePost);
 router.post('/posts/:id/reply', addReply);
+router.post('/posts/:id/submit', addAnswer);
 
 module.exports = router;
