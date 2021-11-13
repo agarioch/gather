@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useAuth0 } from '@auth0/auth0-react';
 import './reply-form.css';
 import Button from '../button/button';
 import usePostReply from '../../hooks/usePostReply';
@@ -17,6 +18,7 @@ type ReplyMessage = {
 
 const ReplyForm = ({ postId, handleCancel, handleReply }: ReplyFormProps) => {
   const { mutate } = usePostReply();
+  const { user } = useAuth0();
 
   const {
     register,
@@ -31,7 +33,7 @@ const ReplyForm = ({ postId, handleCancel, handleReply }: ReplyFormProps) => {
       author: 'alistair.garioch@gmail.com',
       time: new Date().getUTCDate(),
     });
-    const reply = { content: data.reply, author: 'alistair.garioch@gmail.com', date: Date() };
+    const reply = { content: data.reply, author: user?.name || 'Anon', date: Date() };
     mutate({ id: postId, reply });
     reset();
     handleReply();
@@ -41,7 +43,7 @@ const ReplyForm = ({ postId, handleCancel, handleReply }: ReplyFormProps) => {
       <div className="field__group">
         <AnimatePresence>
           <div className="reply">
-            <motion.textarea
+            <motion.input
               className="reply__input"
               defaultValue=""
               placeholder="Enter reply ..."

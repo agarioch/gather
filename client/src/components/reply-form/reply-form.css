@@ -5,6 +5,8 @@
   background-color: var(--grey-50);
   border: 1px solid var(--grey-300);
   border-radius: 0.25rem;
+  height: 2.3rem;
+  padding-left: 1rem;
 }
 .reply__controls {
   margin-top: 0.5rem;

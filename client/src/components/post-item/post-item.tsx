@@ -7,6 +7,7 @@ import './post-item.css';
 import { Link } from 'react-router-dom';
 import usePostUpvote from '../../hooks/usePostUpvote';
 import ReplyForm from '../reply-form/reply-form';
+import Replies from '../replies/replies';
 
 type PostItemProps = {
   post: Post;
@@ -115,7 +116,7 @@ const PostItem = ({ post }: PostItemProps) => {
                   handleReply={handleSubmitReply}
                 />
               )}
-              <code>{JSON.stringify(post.replies)}</code>
+              <Replies replies={post.replies} />
             </motion.div>
           )}
         </AnimatePresence>
