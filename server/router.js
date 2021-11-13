@@ -6,22 +6,25 @@ const {
   addReply,
   addPost,
   addAnswer,
+  getSurveyAnswers,
+  getAllAnswers,
 } = require('./controllers/survey.controller');
-// TODO: Implement ability to authenticate client
-// const checkJwt = require('./middleware/auth.middleware');
 
 const router = Router();
 
+// TODO: Implement ability to authenticate client
+// const checkJwt = require('./middleware/auth.middleware');
 // all the following routes require authentication
 // router.use(checkJwt);
 
 router.get('/', (req, res) => res.end('send requests to posts'));
 router.get('/posts', getAllPosts);
 router.post('/posts', addPost);
-// router.post('/survey', postSurvey);
 router.get('/posts/:id', getPost);
-router.post('/posts/:id/upvote', upvotePost);
+router.patch('/posts/:id/upvote', upvotePost);
 router.post('/posts/:id/reply', addReply);
 router.post('/posts/:id/submit', addAnswer);
+router.get('/posts/:id/responses', getSurveyAnswers);
+router.get('/responses', getAllAnswers);
 
 module.exports = router;

@@ -30,7 +30,7 @@ async function upvotePost(req, res) {
   try {
     const { id } = req.params;
     const queryRes = await db.Survey.upvotePost(id);
-    res.status(201);
+    res.status(202);
     res.send(JSON.stringify(queryRes));
     res.end();
   } catch (error) {
@@ -69,7 +69,7 @@ async function addPost(req, res) {
 async function addAnswer(req, res) {
   try {
     const answer = req.body;
-    const queryRes = await db.Survey.addAnswer(answer);
+    const queryRes = await db.Answer.addAnswer(answer);
     res.status(201);
     res.send(JSON.stringify(queryRes));
     res.end();
@@ -79,5 +79,38 @@ async function addAnswer(req, res) {
     res.end();
   }
 }
+async function getAllAnswers(req, res) {
+  try {
+    const queryRes = await db.Answer.getAll();
+    res.status(200);
+    res.send(JSON.stringify(queryRes));
+    res.end();
+  } catch (error) {
+    console.error(error);
+    res.setStatus(500);
+    res.end();
+  }
+}
+async function getSurveyAnswers(req, res) {
+  try {
+    const queryRes = await db.Answer.getSurveyResponses();
+    res.status(200);
+    res.send(JSON.stringify(queryRes));
+    res.end();
+  } catch (error) {
+    console.error(error);
+    res.setStatus(500);
+    res.end();
+  }
+}
 
-module.exports = { getAllPosts, getPost, upvotePost, addReply, addPost, addAnswer };
+module.exports = {
+  getAllPosts,
+  getPost,
+  upvotePost,
+  addReply,
+  addPost,
+  addAnswer,
+  getAllAnswers,
+  getSurveyAnswers,
+};

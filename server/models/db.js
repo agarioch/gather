@@ -1,7 +1,6 @@
 const { mockPosts, mockAnswers } = require('./mockdata');
 
 let surveyId = 5;
-let answerId = 0;
 
 const db = {};
 db.Survey = {};
@@ -30,10 +29,13 @@ db.Survey.addPost = (post) => {
 
 db.Answer = {};
 db.Answer.addAnswer = (answer) => {
-  newPost = { ...answer, _id: answerId };
-  answerId++;
-  mockAnswers.push(newPost);
-  return Promise.resolve(newPost);
+  mockAnswers.push(answer);
+  console.log(answer);
+  return Promise.resolve(answer);
+};
+db.Answer.getAll = () => Promise.resolve(mockAnswers);
+db.Answer.getSurveyResponses = (surveyId) => {
+  return Promise.resolve(mockAnswers.filter((answer) => answer.question_id === surveyId));
 };
 
 module.exports = db;

@@ -24,7 +24,7 @@ export function getPost(id: string) {
 }
 export function postUpvote(id: string) {
   return fetchRequest(`/posts/${id}/upvote`, {
-    method: 'POST',
+    method: 'PATCH',
   });
 }
 export function postReply(id: string, reply: Reply) {
@@ -47,4 +47,10 @@ export function postResponse(surveyId: string, response: Response) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(response),
   });
+}
+export function getResponses() {
+  return fetchRequest('/responses');
+}
+export function getSurveyResponses(id: string) {
+  return fetchRequest(`/posts/${id}/responses`);
 }
