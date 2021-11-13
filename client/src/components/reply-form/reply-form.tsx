@@ -27,13 +27,11 @@ const ReplyForm = ({ postId, handleCancel, handleReply }: ReplyFormProps) => {
     formState: { errors },
   } = useForm();
   const onSubmit: SubmitHandler<ReplyMessage> = (data) => {
-    console.log('replying:', data.reply);
-    console.log({
-      reply: data.reply,
-      author: 'alistair.garioch@gmail.com',
-      time: new Date().getUTCDate(),
-    });
-    const reply = { content: data.reply, author: user?.name || 'Anon', date: Date() };
+    const reply = {
+      content: data.reply,
+      author: user?.name || 'Anon',
+      date: new Date().toISOString(),
+    };
     mutate({ id: postId, reply });
     reset();
     handleReply();

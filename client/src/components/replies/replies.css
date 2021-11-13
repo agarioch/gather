@@ -1,0 +1,20 @@
+.reply__post {
+  border-top: 2px solid var(--grey-100);
+  margin: 0 1rem;
+  padding: 0.8rem 1rem;
+}
+.reply__post:first-of-type {
+  margin-top: 1rem;
+}
+.reply__author {
+  color: var(--grey-600);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.reply__content {
+  margin-bottom: 0.6rem;
+}
+.reply__time {
+  color: var(--grey-600);
+  font-size: 0.6rem;
+}
