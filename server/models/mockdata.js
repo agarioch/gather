@@ -70,6 +70,37 @@ const mockPosts = [
   },
 ];
 
-const mockAnswers = [];
+const mockAnswers = [
+  {
+    survey_id: '1',
+    user_id: 'alistairgarioch@gmail.com',
+    author_name: 'Alistair',
+    answers: [
+      { question_id: '1q01', answer: 'yes' },
+      { question_id: '1q02', answer: 'nope' },
+      { question_id: '1q03', answer: 'average' },
+      { question_id: '1q04', answer: 'probably' },
+      { question_id: '1q05', answer: '😊' },
+    ],
+  },
+  {
+    survey_id: '1',
+    user_id: 'alistairgarioch@gmail.com',
+    author_name: 'Alistair',
+    answers: [
+      { question_id: '1q01', answer: 'sometimes' },
+      { question_id: '1q02', answer: 'ok' },
+      { question_id: '1q03', answer: 'poor' },
+      { question_id: '1q04', answer: 'unlikley' },
+      { question_id: '1q05', answer: '😒' },
+    ],
+  },
+  {
+    survey_id: '2',
+    user_id: 'alistairgarioch@gmail.com',
+    author_name: 'Alistair',
+    answers: [{ question_id: '1q01', answer: 'most of the time' }],
+  },
+];
 
 module.exports = { mockPosts, mockAnswers };

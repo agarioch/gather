@@ -35,7 +35,7 @@ db.Answer.addAnswer = (answer) => {
 };
 db.Answer.getAll = () => Promise.resolve(mockAnswers);
 db.Answer.getSurveyResponses = (surveyId) => {
-  return Promise.resolve(mockAnswers.filter((answer) => answer.question_id === surveyId));
+  return Promise.resolve(mockAnswers.filter((answer) => answer.survey_id === surveyId));
 };
 
 module.exports = db;

@@ -93,7 +93,8 @@ async function getAllAnswers(req, res) {
 }
 async function getSurveyAnswers(req, res) {
   try {
-    const queryRes = await db.Answer.getSurveyResponses();
+    const { id } = req.params;
+    const queryRes = await db.Answer.getSurveyResponses(id);
     res.status(200);
     res.send(JSON.stringify(queryRes));
     res.end();
