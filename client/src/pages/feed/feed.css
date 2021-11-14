@@ -17,3 +17,17 @@
   padding-left: 2rem;
   width: 14rem;
 }
+.sidebar__actions {
+  align-items: flex-start;
+  border-top: 1px dotted var(--grey-300);
+  color: var(--grey-700);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+.sidebar__list-item {
+  align-items: center;
+  display: flex;
+}

@@ -10,6 +10,7 @@ export type PostReq = {
   replies: Reply[];
   content: string;
   survey?: Survey[];
+  [key: string]: any;
 };
 export type Survey = {
   _uid: string;

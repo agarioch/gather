@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth0, User } from '@auth0/auth0-react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { AnimatePresence, motion } from 'framer-motion';
 import Button from '../button/button';
 import usePostPost from '../../hooks/usePostPost';
 import './post-form.css';
@@ -39,7 +40,12 @@ const PostForm = ({ handleCancel }: PostFormProps) => {
     handleCancel();
   };
   return (
-    <div className="posts__create">
+    <motion.div
+      className="posts__create"
+      initial={{ scaleY: 0, opacity: 0 }}
+      animate={{ scaleY: 1, opacity: 1 }}
+      exit={{ scaleY: 0, opacity: 0 }}
+    >
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="field">
           <label htmlFor="post-title">Title</label>
@@ -73,7 +79,7 @@ const PostForm = ({ handleCancel }: PostFormProps) => {
           </Button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
