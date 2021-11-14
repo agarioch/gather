@@ -12,6 +12,7 @@ import HeaderNav from './components/header-nav/header-nav';
 import CreateSurvey from './pages/create-survey/create-survey';
 import About from './pages/about/about';
 import Responses from './pages/responses/responses';
+import SurveyResponses from './pages/survey-responses/survey-responses';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <ProtectedRoute path="/feed" component={Feed} />
           <ProtectedRoute path="/survey" exact component={CreateSurvey} />
           <ProtectedRoute path="/survey/:id" exact component={SurveyPage} />
-          {/* <ProtectedRoute path="/survey/:id/responses" exact component={TODO} /> */}
+          <ProtectedRoute path="/survey/:id/responses" exact component={SurveyResponses} />
           <ProtectedRoute path="/responses" exact component={Responses} />
           <ProtectedRoute path="/about" exact component={About} />
         </Switch>

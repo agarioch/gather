@@ -1,0 +1,29 @@
+.table__wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  border-radius: 0.25rem;
+  margin-top: 2rem;
+}
+thead {
+  background-color: var(--primary-bg);
+}
+td,
+th {
+  border-bottom: 1px solid var(--grey-300);
+  padding: 0.5rem;
+  text-align: left;
+  min-width: 15ch;
+}
+tbody tr:hover {
+  background-color: transparent;
+  transition: background-color 0.15s linear;
+}
+tbody tr:hover {
+  background-color: var(--grey-100);
+}
+tbody tr:nth-child(odd) {
+  background: var(--grey-50);
+}

@@ -32,7 +32,6 @@ const SurveyForm = ({ id, questions }: SurveyFormProps) => {
     formState: { errors },
   } = useForm<Answer>();
   const onSubmit: SubmitHandler<Answer> = (data) => {
-    console.log('submitting', data);
     const response: Response = {
       survey_id: id,
       user_id: user?.email || 'Anon',

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useForm, useFieldArray } from 'react-hook-form';
+import { useForm, useFieldArray, useWatch } from 'react-hook-form';
 import { useAuth0 } from '@auth0/auth0-react'
 import { v4 as uuidv4 } from 'uuid';
 import classNames from 'classnames';
@@ -24,9 +24,10 @@ const CreateSurveyFrom = () => {
     reset,
     watch,
     handleSubmit,
+    setError,
+    clearErrors,
     formState: { errors },
   } = useForm();
-
   const { fields, append, remove } = useFieldArray({
     control,
     name: 'questions'
@@ -57,8 +58,13 @@ const CreateSurveyFrom = () => {
     return options;
   }
 
+
   // post question on submit
   const onSubmit = (data) => {
+    if (!data.questions.length) {
+      setError('questions', { type: 'manual', message: 'Surveys should contain at least one question' })
+      return
+    }
     const newPost = {
       type: 'survey',
       title: data.title,
@@ -77,7 +83,7 @@ const CreateSurveyFrom = () => {
       history.push('/feed');
     }, 1000);
   }
-
+  console.log(errors);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Field
@@ -85,17 +91,19 @@ const CreateSurveyFrom = () => {
         label={'Title'}
         type={'text'}
         register={register}
-        validation={{ required: true }}
-        error={errors.name}
+        validation={{ required: 'a title is required to identify the survey' }}
+        error={errors.title}
       />
+      {errors.title && <p className="error-message">{errors.title.message}</p>}
       <Field
         id={'content'}
         label={'Description'}
         type={'text'}
         register={register}
-        validation={{ required: true }}
-        error={errors.desc}
+        validation={{ required: 'a description of the survey is required' }}
+        error={errors.content}
       />
+      {errors.content && <p className="error-message">{errors.content.message}</p>}
       <QuestionCounter control={control} />
       {fields.map((item, index) => {
         const inputClasses = classNames([
@@ -132,12 +140,17 @@ const CreateSurveyFrom = () => {
         );
       })}
       <div className="form__add">
-        <Button type="secondary" onClick={() => append({ label: '', type: 'text' })}>
+        {/* <Button type="secondary" onClick={() => append({ label: '', type: 'text' })}> */}
+        <Button type="secondary" onClick={() => {
+          append({ label: '', type: 'choice', options: [{ id: uuidv4(), option: '😠' }, { id: uuidv4(), option: '😕' }, { id: uuidv4(), option: '😐' }, { id: uuidv4(), option: '🙂' }, { id: uuidv4(), option: '😁' }] })
+          clearErrors('questions');
+        }}>
           <i className="fas fa-plus"></i> Add a Question
         </Button>
       </div>
       <div className="form__actions">
-        <Button type="submit">
+        {errors.questions && <p className="error-message">{errors.questions.message}</p>}
+        <Button type="submit" style={{ width: '7rem' }}>
           <i className="fas fa-check"></i> Submit
         </Button>
       </div>

@@ -3,3 +3,15 @@
   text-align: center;
   width: 100%;
 }
+.error-message {
+  display: flex;
+  align-items: center;
+  background-color: var(--error-bg);
+  border-radius: 0.25rem;
+  color: var(--error-outline);
+  padding: 0.2rem 1rem;
+  text-align: center;
+}
+.field + .error-message {
+  margin-top: -1rem;
+}

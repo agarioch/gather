@@ -9,7 +9,6 @@ const CreateOptions = ({ parentIndex, control, register }) => {
     control,
     name: `questions.${parentIndex}.options`,
   });
-
   return (
     <div>
       {fields.map((item, index) => {
