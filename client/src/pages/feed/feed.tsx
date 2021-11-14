@@ -26,13 +26,13 @@ const Feed: React.FC = () => {
 
   return (
     <main className="feed">
-      <div className="posts">
+      <section className="posts">
         <AnimatePresence>
           {posting && <PostForm handleCancel={handleCancelPosting} />}
-          {cards}
         </AnimatePresence>
-      </div>
-      <div className="sidebar">
+        {cards}
+      </section>
+      <section className="sidebar">
         <Button
           onClick={() => {
             setPosting(!posting);
@@ -74,7 +74,7 @@ const Feed: React.FC = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </section>
     </main>
   );
 };

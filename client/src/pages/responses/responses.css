@@ -1,0 +1,10 @@
+.responses__wrapper {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  display: block;
+  padding: 1rem 1rem;
+  margin-bottom: 0.5rem;
+  min-width: 60ch;
+  width: 90%;
+}

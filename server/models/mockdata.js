@@ -37,13 +37,14 @@ const mockPosts = [
   },
   {
     _id: 2,
-    type: 'post',
+    type: 'survey',
     title: 'This is a test post',
     author_id: 'alistairgarioch@gmail.com',
     author: 'Alistair',
     replies: [],
-    votes: 104,
+    votes: 10,
     content: 'This is the body of the message.',
+    survey: [{ component: 'text', type: 'text', label: 'Do you like working here?', _uid: '1q01' }],
   },
   {
     _id: 3,
@@ -57,7 +58,7 @@ const mockPosts = [
   },
   {
     _id: 4,
-    type: 'post',
+    type: 'text',
     title:
       'We should improve our relationship with small suppliers by reducing our payment terms to max 60 days',
     author_id: 'alistairgarioch@gmail.com',

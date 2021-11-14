@@ -35,7 +35,7 @@ const SurveyForm = ({ id, questions }: SurveyFormProps) => {
     console.log('submitting', data);
     const response: Response = {
       survey_id: id,
-      user_id: 'test',
+      user_id: user?.email || 'Anon',
       author_name: user?.name || 'Anon',
       answers: Object.keys(data).map((key) => {
         return { question_id: key, answer: data[key] };
