@@ -6,7 +6,11 @@
   height: 5rem;
   justify-content: space-between;
   padding: 0 2rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   width: 100%;
+  z-index: 99;
 }
 .header__logo {
   align-items: center;

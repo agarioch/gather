@@ -9,6 +9,8 @@ import usePostUpvote from '../../hooks/usePostUpvote';
 import ReplyForm from '../reply-form/reply-form';
 import Replies from '../replies/replies';
 
+const SURVEY = 'survey';
+
 type PostItemProps = {
   post: Post;
 };
@@ -32,7 +34,7 @@ const PostItem = ({ post }: PostItemProps) => {
 
   // CSS classes and Framer Motion Animation variants
   const typeIconClass =
-    post.type === 'survey' ? (
+    post.type === SURVEY ? (
       <p className="post__details--info">
         <i className="fab fa-wpforms"></i> Survey
       </p>
@@ -98,6 +100,14 @@ const PostItem = ({ post }: PostItemProps) => {
               <p className="post__actions--none">No Replies</p>
             )}
           </span>
+          {post.type === SURVEY && (
+            <span>
+              <Link to={`/survey/${post._id}/responses`}>
+                <button className="post__actions--btn">View responses</button>
+              </Link>
+            </span>
+          )}
+
           <button className="post__actions--btn" onClick={handleReply}>
             <i className="fas fa-comment"></i> Reply
           </button>

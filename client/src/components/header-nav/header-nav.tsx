@@ -21,8 +21,8 @@ const HeaderNav = () => (
         </Link>
       </li>
       <li className="nav__item-container">
-        <Link to="/about" className="nav__item">
-          About
+        <Link to="/responses" className="nav__item">
+          Results
         </Link>
       </li>
     </ul>

@@ -1,16 +1,19 @@
 import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { useTable } from 'react-table';
 import './table.css';
 
 
 const Table = ({ responses }) => {
-  if (!responses) {
-    responses = [{ survey_id: 'n/a', author_name: 'n/a', answers: [{ question_id: 'No Questions', answer: 'n/a' }] }]
+  const { id: surveyLink } = useParams();
+  let checkData = responses;
+  if (responses.length === 0) {
+    checkData = [{ survey_id: 'n/a', author_name: 'n/a', answers: [{ question_id: 'No Questions', answer: 'n/a' }] }]
   }
-  const firstRowAnswers = responses[0].answers;
+  const firstRowAnswers = checkData[0].answers;
   const questionColumns = firstRowAnswers.map((answer, q) => ({ id: answer.question_id, Header: answer.question_id, accessor: (row, rowIndex) => row?.answers[q]?.answer }))
   const data = React.useMemo(
-    () => responses,
+    () => checkData,
     []
   );
   const columns = React.useMemo(
@@ -37,7 +40,7 @@ const Table = ({ responses }) => {
     prepareRow,
   } = tableInstance
 
-  if (!responses.length) return <h2>No data to show</h2>
+  if (!responses.length) return <Link to={`/survey/${surveyLink}`}><h3 className="error-message">No responses yet, click here to be the first ...</h3></Link>
   return (
     <div className="table__wrapper">
 
