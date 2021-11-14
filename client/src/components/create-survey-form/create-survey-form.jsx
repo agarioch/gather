@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { useAuth0 } from '@auth0/auth0-react'
 import { v4 as uuidv4 } from 'uuid';
@@ -9,8 +10,13 @@ import QuestionCounter from '../question-counter/question-counter';
 import './create-survey-form.css';
 import CreateOptions from '../create-options/create-options';
 import usePostPost from '../../hooks/usePostPost';
+import Success from '../success/success';
 
 const CreateSurveyFrom = () => {
+  const [submitting, setSubmitting] = useState(false);
+  // react router
+  const history = useHistory()
+
   // react-hook-forms
   const {
     register,
@@ -56,6 +62,7 @@ const CreateSurveyFrom = () => {
     const newPost = {
       type: 'survey',
       title: data.title,
+      author_id: user.email || 'Anon',
       author: user.name || 'Anon',
       content: data.content,
       votes: 0,
@@ -64,6 +71,11 @@ const CreateSurveyFrom = () => {
     }
     mutate({ post: newPost });
     reset();
+    setSubmitting(true);
+    setTimeout(() => {
+      setSubmitting(false);
+      history.push('/feed');
+    }, 1000);
   }
 
   return (
@@ -129,6 +141,7 @@ const CreateSurveyFrom = () => {
           <i className="fas fa-check"></i> Submit
         </Button>
       </div>
+      {submitting && <Success />}
     </form>
   );
 };

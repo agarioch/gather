@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './feed.css';
 import useGetPosts from '../../hooks/useGetPosts';
 import Button from '../../components/button/button';
 import PostItem from '../../components/post-item/post-item';
 import Loader from '../../components/loader/loader';
+import PostForm from '../../components/post-form/post-form';
 
 const Feed: React.FC = () => {
+  const [posting, setPosting] = useState(false);
   const postsQuery = useGetPosts();
+
+  const handleCancelPosting = () => setPosting(false);
 
   const cards = postsQuery.isSuccess ? (
     postsQuery.data
@@ -18,9 +22,18 @@ const Feed: React.FC = () => {
 
   return (
     <main className="feed">
-      <div className="posts">{cards}</div>
+      <div className="posts">
+        {posting && <PostForm handleCancel={handleCancelPosting} />}
+        {cards}
+      </div>
       <div className="sidebar">
-        <Button onClick={() => {}}>+ New Post</Button>
+        <Button
+          onClick={() => {
+            setPosting(!posting);
+          }}
+        >
+          + New Post
+        </Button>
       </div>
     </main>
   );

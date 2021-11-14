@@ -1,16 +1,10 @@
-export type Post = {
+export type Post = PostReq & {
   _id: string;
-  type: 'text' | 'survey';
-  title: string;
-  author: string;
-  votes: number;
-  replies: Reply[];
-  content: string;
-  survey?: Survey[];
 };
 export type PostReq = {
   type: 'text' | 'survey';
   title: string;
+  author_id: string;
   author: string;
   votes: number;
   replies: Reply[];
