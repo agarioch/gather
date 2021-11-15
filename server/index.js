@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const { auth } = require('express-oauth2-jwt-bearer');
 const helmet = require('helmet');
 require('dotenv').config();
+const db = require('./models');
 
 const router = require('./router');
 
@@ -29,4 +30,11 @@ app.get('/private', checkJwt, function (req, res) {
   });
 });
 
-app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+(async function start() {
+  try {
+    app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+    await db;
+  } catch (error) {
+    console.error(error);
+  }
+})();

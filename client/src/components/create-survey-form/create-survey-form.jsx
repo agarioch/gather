@@ -85,7 +85,6 @@ const CreateSurveyFrom = () => {
       history.push('/feed');
     }, 1000);
   }
-  console.log(errors);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Field

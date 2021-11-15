@@ -4,7 +4,6 @@ import { UserContext } from '../../App';
 const TYPE: string = 'adventurer';
 
 function identicon(identifier: string): string {
-  console.log('id');
   return `https://avatars.dicebear.com/api/${TYPE}/${
     identifier || 'Anon'
   }.svg?backgroundColor=%23c7d2fe`;

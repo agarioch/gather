@@ -5,7 +5,6 @@ import { ProfilePicture } from './profile-pictures';
 
 const Profile: React.FC = () => {
   const { user } = useAuth0();
-  console.log(user);
   if (user) {
     return (
       <div className="profile">

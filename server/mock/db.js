@@ -33,12 +33,10 @@ db.Survey.addResponse = (id, user_id) => {
   const findId = (el) => el._id === parseInt(numId);
   const postIndex = mockPosts.findIndex(findId);
   if (Array.isArray(mockPosts[postIndex].respondees)) {
-    console.log(user_id);
     mockPosts[postIndex].respondees.push(user_id);
   } else {
     mockPosts[postIndex].respondees = [user_id];
   }
-  console.log(mockPosts[postIndex]);
   return db.Survey.getPost(id);
 };
 // SURVEY RESPONSES
@@ -46,7 +44,6 @@ db.Survey.addResponse = (id, user_id) => {
 db.Answer = {};
 db.Answer.addAnswer = (answer) => {
   mockAnswers.push(answer);
-  console.log(answer);
   return Promise.resolve(answer);
 };
 db.Answer.getAll = () => Promise.resolve(mockAnswers);

@@ -10,7 +10,7 @@ function fetchRequest(path: string, options?: options) {
     .then((res) => (res.status < 400 ? res : Promise.reject(res)))
     .then((res) => (res.status !== 204 ? res.json() : res))
     .then((res) => {
-      console.log(res);
+      console.log('DEVELOPMENT:API-RESPONSE', res);
       return res;
     })
     .catch((err) => console.error(err));
