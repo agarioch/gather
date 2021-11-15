@@ -12,7 +12,7 @@ const usePostResponse = () => {
   const queryClient = useQueryClient();
   return useMutation(({ id, response }: usePostReplyProps) => postResponse(id, response), {
     onSuccess: () => {
-      queryClient.invalidateQueries('posts');
+      queryClient.invalidateQueries('responses');
     },
   });
 };

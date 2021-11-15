@@ -35,7 +35,7 @@ const mockPosts = [
       },
     ],
     date: '2021-11-15T08:12:20.195Z',
-    respondees: ['alistair.garioch@gmail.com'],
+    respondees: [],
   },
   {
     _id: 2,
@@ -51,7 +51,7 @@ const mockPosts = [
   },
   {
     _id: 3,
-    type: 'post',
+    type: 'text',
     title: 'This is a test post',
     author_id: 'alistairgarioch@gmail.com',
     author: 'Alistair',

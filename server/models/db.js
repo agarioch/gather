@@ -28,6 +28,19 @@ db.Survey.addPost = (post) => {
   mockPosts.push(newPost);
   return Promise.resolve(newPost);
 };
+db.Survey.addResponse = (id, user_id) => {
+  const numId = parseInt(id);
+  const findId = (el) => el._id === parseInt(numId);
+  const postIndex = mockPosts.findIndex(findId);
+  if (Array.isArray(mockPosts[postIndex].respondees)) {
+    console.log(user_id);
+    mockPosts[postIndex].respondees.push(user_id);
+  } else {
+    mockPosts[postIndex].respondees = [user_id];
+  }
+  console.log(mockPosts[postIndex]);
+  return db.Survey.getPost(id);
+};
 // SURVEY RESPONSES
 
 db.Answer = {};
