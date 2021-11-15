@@ -35,15 +35,15 @@ const PostItem = ({ post }: PostItemProps) => {
   const handleSubmitReply = () => {
     setReplying(false);
   };
-
+  const responded: boolean = post?.respondees?.includes(user?.email || 'no') || false;
   // CSS classes and Framer Motion Animation variants
   const typeIconClass =
     post.type === SURVEY ? (
-      <p className="post__details--info">
+      <p className="post__badge-type">
         <i className="fab fa-wpforms"></i>&nbsp;&nbsp; Survey
       </p>
     ) : (
-      <p className="post__details--info">
+      <p className="post__badge-type">
         <i className="fas fa-lightbulb"></i>&nbsp;&nbsp; Idea
       </p>
     );
@@ -82,12 +82,19 @@ const PostItem = ({ post }: PostItemProps) => {
             </motion.button>
           </motion.div>
           <div className="post__details">
-            {typeIconClass}
-            <Link to={`/survey/${post._id}`}>
+            <div className="post__badges">
+              {typeIconClass}
+              {responded && (
+                <p className="post__badge-success">
+                  <i className="fas fa-check"></i> &nbsp; you responded
+                </p>
+              )}
+            </div>
+            <Link to={`/survey/${post._id}${responded ? '/responses' : ''}`}>
               <h2 className="post__details--title">{post.title}</h2>
               {post.content && <p>{post.content} </p>}
             </Link>
-            <div className="post__details--info">
+            <div className="post__info">
               <div className="post__profile">
                 <ProfilePicture
                   email={post.author_id}
