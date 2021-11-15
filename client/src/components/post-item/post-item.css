@@ -37,9 +37,25 @@
   width: 100%;
 }
 .post__details--info {
+  align-items: center;
   color: var(--grey-600);
+  display: flex;
   font-size: 0.9rem;
   margin: 0.5rem 0;
+}
+.post__author--small {
+  border: 1px solid var(--primary-200);
+  border-radius: 50%;
+  height: 2rem;
+  margin-right: 0.5rem;
+  object-fit: cover;
+  overflow: hidden;
+  width: 2rem;
+}
+.post__details--time {
+  color: var(--grey-500);
+  font-size: 0.8rem;
+  margin-left: 1rem;
 }
 .post__details--title {
   cursor: pointer;

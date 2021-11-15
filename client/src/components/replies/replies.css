@@ -1,4 +1,6 @@
 .reply__post {
+  align-items: flex-start;
+  display: flex;
   border-top: 2px solid var(--grey-100);
   margin: 0 1rem;
   padding: 0.8rem 1rem;

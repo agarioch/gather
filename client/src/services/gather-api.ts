@@ -54,3 +54,9 @@ export function getResponses() {
 export function getSurveyResponses(id: string) {
   return fetchRequest(`/posts/${id}/responses`);
 }
+export function getUsers() {
+  return fetchRequest('/users');
+}
+export function getUser(email: string) {
+  return fetchRequest(`/users/${email}`);
+}

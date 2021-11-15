@@ -14,6 +14,7 @@ type PostFormProps = {
 type PostData = {
   title: string;
   content: string;
+  date: string;
 };
 
 const PostForm = ({ handleCancel }: PostFormProps) => {
@@ -34,6 +35,7 @@ const PostForm = ({ handleCancel }: PostFormProps) => {
       author: user?.name || 'Anon',
       votes: 0,
       replies: [],
+      date: new Date().toISOString(),
     };
     mutate({ post: newPost });
     reset();

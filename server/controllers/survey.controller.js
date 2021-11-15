@@ -104,6 +104,32 @@ async function getSurveyAnswers(req, res) {
     res.end();
   }
 }
+async function getAllUsers(req, res) {
+  try {
+    const queryRes = await db.User.getAll();
+    res.status(200);
+    res.send(JSON.stringify(queryRes));
+    res.end();
+  } catch (error) {
+    console.error(error);
+    res.setStatus(500);
+    res.end();
+  }
+}
+
+async function getUser(req, res) {
+  try {
+    const { email } = req.body;
+    const queryRes = await db.User.getUser(email);
+    res.status(200);
+    res.send(JSON.stringify(queryRes));
+    res.end();
+  } catch (error) {
+    console.error(error);
+    res.setStatus(500);
+    res.end();
+  }
+}
 
 module.exports = {
   getAllPosts,
@@ -114,4 +140,6 @@ module.exports = {
   addAnswer,
   getAllAnswers,
   getSurveyAnswers,
+  getAllUsers,
+  getUser,
 };

@@ -10,6 +10,8 @@ export type PostReq = {
   replies: Reply[];
   content: string;
   survey?: Survey[];
+  date?: string;
+  respondees?: string[];
   [key: string]: any;
 };
 export type Survey = {
@@ -20,6 +22,7 @@ export type Survey = {
   options?: string[];
 };
 export type Reply = {
+  author_id: string;
   author: string;
   content: string;
   date: string;

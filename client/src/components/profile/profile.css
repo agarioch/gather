@@ -6,7 +6,8 @@
   width: 3rem;
   margin: 0 1rem;
 }
-.profile--picture {
+.profile__picture {
+  border: 1px solid var(--grey-400);
   border-radius: 50%;
   height: 3rem;
   object-fit: cover;

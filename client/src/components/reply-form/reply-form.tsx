@@ -29,7 +29,8 @@ const ReplyForm = ({ postId, handleCancel, handleReply }: ReplyFormProps) => {
   const onSubmit: SubmitHandler<ReplyMessage> = (data) => {
     const reply = {
       content: data.reply,
-      author: user?.name || 'Anon',
+      author: user?.name || 'anon',
+      author_id: user?.email || 'anon',
       date: new Date().toISOString(),
     };
     mutate({ id: postId, reply });

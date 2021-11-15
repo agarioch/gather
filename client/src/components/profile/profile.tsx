@@ -1,14 +1,15 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import './profile.css';
+import { ProfilePicture } from './profile-pictures';
 
 const Profile: React.FC = () => {
   const { user } = useAuth0();
+  console.log(user);
   if (user) {
-    const { picture } = user;
     return (
       <div className="profile">
-        <img src={picture} alt="profile" className="profile--picture" />
+        <ProfilePicture email={user?.email || 'anon'} />
       </div>
     );
   } else {

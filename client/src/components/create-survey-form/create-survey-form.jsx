@@ -73,7 +73,9 @@ const CreateSurveyFrom = () => {
       content: data.content,
       votes: 0,
       replies: [],
-      survey: createSurvey(data.questions)
+      survey: createSurvey(data.questions),
+      date: new Date().toISOString(),
+      respondees: []
     }
     mutate({ post: newPost });
     reset();

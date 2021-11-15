@@ -13,26 +13,34 @@ import CreateSurvey from './pages/create-survey/create-survey';
 import About from './pages/about/about';
 import Responses from './pages/responses/responses';
 import SurveyResponses from './pages/survey-responses/survey-responses';
+import useGetUsers from './hooks/useGetUsers';
+
+export const UserContext = React.createContext({});
 
 function App() {
+  const usersQuery = useGetUsers();
+  const userDetails = usersQuery.data;
+
   return (
     <div className="App">
-      <Header>
-        <HeaderNav />
-        <Profile />
-        <AuthenticationButton />
-      </Header>
-      <main>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <ProtectedRoute path="/feed" component={Feed} />
-          <ProtectedRoute path="/survey" exact component={CreateSurvey} />
-          <ProtectedRoute path="/survey/:id" exact component={SurveyPage} />
-          <ProtectedRoute path="/survey/:id/responses" exact component={SurveyResponses} />
-          <ProtectedRoute path="/responses" exact component={Responses} />
-          <ProtectedRoute path="/about" exact component={About} />
-        </Switch>
-      </main>
+      <UserContext.Provider value={userDetails}>
+        <Header>
+          <HeaderNav />
+          <Profile />
+          <AuthenticationButton />
+        </Header>
+        <main>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <ProtectedRoute path="/feed" component={Feed} />
+            <ProtectedRoute path="/survey" exact component={CreateSurvey} />
+            <ProtectedRoute path="/survey/:id" exact component={SurveyPage} />
+            <ProtectedRoute path="/survey/:id/responses" exact component={SurveyResponses} />
+            <ProtectedRoute path="/responses" exact component={Responses} />
+            <ProtectedRoute path="/about" exact component={About} />
+          </Switch>
+        </main>
+      </UserContext.Provider>
     </div>
   );
 }

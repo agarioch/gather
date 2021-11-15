@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import './feed.css';
 import useGetPosts from '../../hooks/useGetPosts';
 import Button from '../../components/button/button';
 import PostItem from '../../components/post-item/post-item';
 import Loader from '../../components/loader/loader';
 import PostForm from '../../components/post-form/post-form';
-import { AnimatePresence } from 'framer-motion';
 import { Post } from '../../types';
 import NavButton from '../../components/button/nav-button';
 

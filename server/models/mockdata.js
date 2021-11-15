@@ -34,6 +34,8 @@ const mockPosts = [
         options: ['😡', '😟', '😒', '🙂', '😊', '😁'],
       },
     ],
+    date: '2021-11-15T08:12:20.195Z',
+    respondees: ['alistair.garioch@gmail.com'],
   },
   {
     _id: 2,
@@ -45,6 +47,7 @@ const mockPosts = [
     votes: 10,
     content: 'This is the body of the message.',
     survey: [{ component: 'text', type: 'text', label: 'Do you like working here?', _uid: '1q01' }],
+    date: '2021-11-14T09:12:20.195Z',
   },
   {
     _id: 3,
@@ -55,6 +58,7 @@ const mockPosts = [
     replies: [],
     votes: 9,
     content: 'This is the body of the message.',
+    date: '2021-11-14T16:12:20.195Z',
   },
   {
     _id: 4,
@@ -67,6 +71,7 @@ const mockPosts = [
     votes: 8,
     content:
       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi, enim similique eos blanditiis magni illo distinctio, beatae praesentium ad, autem pariatur atque possimus optio! Exercitationem dolorem quidem minima voluptatem in!',
+    date: '2021-11-13T12:12:20.195Z',
   },
 ];
 
@@ -103,4 +108,16 @@ const mockAnswers = [
   },
 ];
 
-module.exports = { mockPosts, mockAnswers };
+const mockUsers = {
+  'emma@example.com': 'https://randomuser.me/api/portraits/women/90.jpg',
+  'olivia@example.com': 'https://randomuser.me/api/portraits/women/21.jpg',
+  'ava@example.com': 'https://randomuser.me/api/portraits/women/72.jpg',
+  'charlotte@example.com': 'https://randomuser.me/api/portraits/women/18.jpg',
+  'liam@example.com': 'https://randomuser.me/api/portraits/men/44.jpg',
+  'noah@example.com': 'https://randomuser.me/api/portraits/men/49.jpg',
+  'oliver@example.com': 'https://randomuser.me/api/portraits/men/1.jpg',
+  'alistairgarioch@gmail.com':
+    'https://avatars.githubusercontent.com/u/20269655?s=400&u=45929ca38ef71a1bee0922ccc3a42de33ed9d5c9&v=4',
+};
+
+module.exports = { mockPosts, mockAnswers, mockUsers };

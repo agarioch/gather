@@ -8,6 +8,8 @@ const {
   addAnswer,
   getSurveyAnswers,
   getAllAnswers,
+  getAllUsers,
+  getUser,
 } = require('./controllers/survey.controller');
 
 const router = Router();
@@ -26,5 +28,7 @@ router.post('/posts/:id/reply', addReply);
 router.post('/posts/:id/submit', addAnswer);
 router.get('/posts/:id/responses', getSurveyAnswers);
 router.get('/responses', getAllAnswers);
+router.get('/users', getAllUsers);
+router.get('/users/:email', getUser);
 
 module.exports = router;
