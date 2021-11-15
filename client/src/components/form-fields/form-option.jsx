@@ -3,8 +3,8 @@ import './form-fields.css'
 import ButtonGroup from "./button-group";
 
 const OptionField = ({ field, register, type, error }) => (
-  <div className="field" key={field._uid}>
-    <label className="field__label" htmlFor={field._uid}>{field.label}</label>
+  <div className="field" key={field._id}>
+    <label className="field__label" htmlFor={field._id}>{field.label}</label>
     <div className="field__options">
       {
         <ButtonGroup
@@ -34,7 +34,7 @@ export default OptionField;
 //       type={type}
 //       name={option}
 //       value={option}
-//       {...register(field._uid, { required: true })}
+//       {...register(field._id, { required: true })}
 //       className={inputClass}
 //     />
 //   </span>

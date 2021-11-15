@@ -27,7 +27,7 @@ function ButtonGroup(props) {
               id={option}
               value={option}
               name={option}
-              {...register(field._uid, { required: true })}
+              {...register(field._id, { required: true })}
             />
             <motion.label
               className="group__label"

@@ -15,7 +15,7 @@ export type PostReq = {
   [key: string]: any;
 };
 export type Survey = {
-  _uid: string;
+  _id: string;
   component: string;
   type: string;
   label: string;

@@ -24,7 +24,6 @@ const SurveyForm = ({ id, questions }: SurveyFormProps) => {
   const history = useHistory();
   const { mutate } = usePostResponse();
   const { user } = useAuth0();
-
   const {
     register,
     handleSubmit,
@@ -56,23 +55,23 @@ const SurveyForm = ({ id, questions }: SurveyFormProps) => {
           case 'options':
             return (
               <OptionField
-                key={question._uid}
+                key={question._id}
                 field={question}
                 type={question.type}
                 register={register}
-                error={errors[question._uid]}
+                error={errors[question._id]}
               />
             );
           default:
             return (
               <Field
-                key={question._uid}
-                id={question._uid}
+                key={question._id}
+                id={question._id}
                 label={question.label}
                 type={question.type}
                 register={register}
                 validation={{ required: true }}
-                error={errors[question._uid]}
+                error={errors[question._id]}
               />
             );
         }
