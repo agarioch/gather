@@ -35,8 +35,8 @@ const SurveyForm = ({ id, questions }: SurveyFormProps) => {
       survey_id: id,
       user_id: user?.email || 'Anon',
       author_name: user?.name || 'Anon',
-      answers: Object.keys(data).map((key) => {
-        return { question_id: key, answer: data[key] };
+      answers: Object.keys(data).map((key, index) => {
+        return { question_id: key, question: questions[index].label, answer: data[key] };
       }),
     };
     mutate({ id, response });

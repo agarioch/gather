@@ -16,7 +16,6 @@ function ButtonGroup(props) {
   function onChangeRadio(e) {
     setSelected(e.target.id);
   }
-  console.log('field', field)
   return (
     <motion.div className="group__container" id={props.labelId} onChange={(e) => onChangeRadio(e)}>
       <AnimateSharedLayout>

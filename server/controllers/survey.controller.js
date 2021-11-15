@@ -73,7 +73,7 @@ async function addResponse(req, res, next) {
   try {
     const { id } = req.params;
     const { user_id } = req.body;
-    await Post.findByIdAndUpdate(id, { $push: { respondees: user_id } });
+    await Post.findByIdAndUpdate(id, { $addToSet: { respondees: user_id } });
     next();
   } catch (error) {
     console.error(error);

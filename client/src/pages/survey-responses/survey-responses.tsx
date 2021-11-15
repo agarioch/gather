@@ -10,7 +10,7 @@ const SurveyResponses = () => {
   const responsesQuery = useGetSurveyResponses(id);
   return (
     <div className="dashboard">
-      <h2>Survey {id} Responses</h2>
+      <h2>Responses</h2>
       {responsesQuery.isSuccess && <Table responses={responsesQuery.data} />}
     </div>
   );

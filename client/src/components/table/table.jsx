@@ -11,17 +11,13 @@ const Table = ({ responses }) => {
     checkData = [{ survey_id: 'n/a', author_name: 'n/a', answers: [{ question_id: 'No Questions', answer: 'n/a' }] }]
   }
   const firstRowAnswers = checkData[0].answers;
-  const questionColumns = firstRowAnswers.map((answer, q) => ({ id: answer.question_id, Header: answer.question_id, accessor: (row, rowIndex) => row?.answers[q]?.answer }))
+  const questionColumns = firstRowAnswers.map((answer, q) => ({ id: answer.question_id, Header: answer.question, accessor: (row, rowIndex) => row?.answers[q]?.answer }))
   const data = React.useMemo(
     () => checkData,
     []
   );
   const columns = React.useMemo(
     () => [
-      {
-        Header: 'Survey',
-        accessor: 'survey_id',
-      },
       {
         Header: 'Respondee',
         accessor: 'author_name',
