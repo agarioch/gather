@@ -14,31 +14,32 @@ function ButtonGroup(props) {
     field.options.find((o) => o.default)
   );
   function onChangeRadio(e) {
-    setSelected(e.target.value);
+    setSelected(e.target.id);
   }
+  console.log('field', field)
   return (
     <motion.div className="group__container" id={props.labelId} onChange={(e) => onChangeRadio(e)}>
       <AnimateSharedLayout>
         {field.options.map((option) => (
-          <React.Fragment key={option}>
+          <React.Fragment key={field._id + option}>
             <motion.input
               className="group__input"
               type="radio"
-              id={option}
+              id={field._id + option}
               value={option}
               name={option}
               {...register(field._id, { required: true })}
             />
             <motion.label
               className="group__label"
-              htmlFor={option}
+              htmlFor={field._id + option}
               key={option}
               initial={false}
               animate={{
                 visibility: "visible"
               }}
             >
-              {isSelected === option && (
+              {isSelected === (field._id + option) && (
                 <motion.div
                   className="group__background"
                   layoutId="radioBackground"
