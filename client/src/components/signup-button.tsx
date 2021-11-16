@@ -6,9 +6,14 @@ import '../pages/home/home.css';
 const SignupButton: React.FC = (props) => {
   const { loginWithRedirect } = useAuth0();
   return (
-    <button onClick={() => loginWithRedirect({ screen_hint: 'signup' })} className="signup-button">
+    <motion.button
+      onClick={() => loginWithRedirect({ screen_hint: 'signup' })}
+      className="signup-button"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 1 }}
+    >
       Signup
-    </button>
+    </motion.button>
   );
 };
 

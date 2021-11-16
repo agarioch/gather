@@ -17,7 +17,7 @@ export const ProfilePicture = ({ email, style }: ProfilePictureProps) => (
   <UserContext.Consumer>
     {(value: any) => (
       <img
-        src={value && value[email] ? value[email] : identicon(email)}
+        src={value && value[email] ? value[email].picture : identicon(email)}
         alt="profile"
         className="profile__picture"
         style={style}

@@ -94,13 +94,13 @@
   margin-top: 1.5rem;
   padding: 0.5rem 1rem;
   pointer-events: all;
-  transition: all 0.2s ease;
+  /* transition: all 0.2s ease; */
 }
-.signup-button:hover {
+/* .signup-button:hover {
   background-color: var(--primary-bg);
   color: var(--primary-700);
   transform: scale(1.1);
 }
 .signup-button:active {
   transform: scale(1);
-}
+} */

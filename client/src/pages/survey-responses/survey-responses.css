@@ -10,3 +10,26 @@
   height: 400px;
   width: 100%;
 }
+.dashboard__row {
+  display: flex;
+}
+.dashboard__card {
+  padding: 1rem;
+  margin: 1rem;
+}
+.dashboard__title {
+  color: var(--grey-700);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.dashboard__email {
+  color: var(--grey-600);
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+.dashboard__done {
+  color: var(--success-outline);
+}
+.dashboard__pending {
+  color: var(--grey-700);
+}

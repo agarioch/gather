@@ -109,15 +109,47 @@ const mockAnswers = [
 ];
 
 const mockUsers = {
-  'emma@example.com': 'https://randomuser.me/api/portraits/women/90.jpg',
-  'olivia@example.com': 'https://randomuser.me/api/portraits/women/21.jpg',
-  'ava@example.com': 'https://randomuser.me/api/portraits/women/72.jpg',
-  'charlotte@example.com': 'https://randomuser.me/api/portraits/women/18.jpg',
-  'liam@example.com': 'https://randomuser.me/api/portraits/men/44.jpg',
-  'noah@example.com': 'https://randomuser.me/api/portraits/men/49.jpg',
-  'oliver@example.com': 'https://randomuser.me/api/portraits/men/1.jpg',
-  'alistairgarioch@gmail.com':
-    'https://avatars.githubusercontent.com/u/20269655?s=400&u=45929ca38ef71a1bee0922ccc3a42de33ed9d5c9&v=4',
+  'emma@example.com': {
+    picture: 'https://randomuser.me/api/portraits/women/90.jpg',
+    name: 'Emma',
+    role: 'leader',
+  },
+  'olivia@example.com': {
+    picture: 'https://randomuser.me/api/portraits/women/21.jpg',
+    name: 'Olivia',
+    role: 'user',
+  },
+  'ava@example.com': {
+    picture: 'https://randomuser.me/api/portraits/women/72.jpg',
+    name: 'Ava',
+    role: 'user',
+  },
+  'charlotte@example.com': {
+    picture: 'https://randomuser.me/api/portraits/women/18.jpg',
+    name: 'Charlotte',
+    role: 'user',
+  },
+  'liam@example.com': {
+    picture: 'https://randomuser.me/api/portraits/men/44.jpg',
+    name: 'Liam',
+    role: 'user',
+  },
+  'noah@example.com': {
+    picture: 'https://randomuser.me/api/portraits/men/49.jpg',
+    name: 'Noah',
+    role: 'user',
+  },
+  'oliver@example.com': {
+    picture: 'https://randomuser.me/api/portraits/men/1.jpg',
+    name: 'Oliver',
+    role: 'user',
+  },
+  'alistairgarioch@gmail.com': {
+    picture:
+      'https://avatars.githubusercontent.com/u/20269655?s=400&u=45929ca38ef71a1bee0922ccc3a42de33ed9d5c9&v=4',
+    name: 'Alistair',
+    role: 'user',
+  },
 };
 
 module.exports = { mockPosts, mockAnswers, mockUsers };
