@@ -67,15 +67,14 @@
   margin-top: 2rem;
   margin-left: 5vw;
   margin-right: 5vw;
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   justify-content: space-evenly;
 }
 .features__card {
   margin: 1rem;
   padding: 0.5rem;
-  /* background-color: var(--grey-200);
-  border-radius: 0.5rem; */
+  width: 25%;
 }
 .features__icon {
   stroke: var(--grey-600);
@@ -88,19 +87,11 @@
   border-radius: 0.25rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   color: var(--primary-800);
+  cursor: pointer;
   font-weight: 700;
   font-family: lato;
   font-size: 1.2rem;
   margin-top: 1.5rem;
   padding: 0.5rem 1rem;
   pointer-events: all;
-  /* transition: all 0.2s ease; */
 }
-/* .signup-button:hover {
-  background-color: var(--primary-bg);
-  color: var(--primary-700);
-  transform: scale(1.1);
-}
-.signup-button:active {
-  transform: scale(1);
-} */

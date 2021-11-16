@@ -12,6 +12,7 @@
 }
 .dashboard__row {
   display: flex;
+  border-bottom: 1px solid var(--grey-300);
 }
 .dashboard__card {
   padding: 1rem;
@@ -32,4 +33,11 @@
 }
 .dashboard__pending {
   color: var(--grey-700);
+}
+.dashboard__users {
+  max-height: 200px;
+  overflow-y: auto;
+}
+.dashboard__list {
+  list-style: none;
 }

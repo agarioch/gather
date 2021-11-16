@@ -12,7 +12,7 @@ const SignupButton: React.FC = (props) => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 1 }}
     >
-      Signup
+      Sign up your team
     </motion.button>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import SignupButton from '../../components/signup-button';
 import './home.css';
+import illustration from '../../assets/undraw-reminders.svg';
 
 const Home: React.FC = () => {
   return (
@@ -9,14 +10,14 @@ const Home: React.FC = () => {
         <section className="hero">
           <div className="hero__text">
             <div className="hero__tagline">
-              <p>Opinions, ideas and</p>
-              <p>feedback for better</p>
-              <p>functioning teams</p>
+              <p>Gather ideas and</p>
+              <p>suggestions to</p>
+              <p>improve your team!</p>
             </div>
             <p className="hero__paragraph">
-              Gather helps you to understand your team through surveys and posts. It's like Slido
-              and Typeform combined but focused on ongoing feedback rather one off presentations &
-              milestones.
+              Gather helps you to understand your team through surveys and posts. It works like
+              Slido and Typeform but focuses on ongoing collaboration vs. one off presentations &
+              surveys.
             </p>
             <SignupButton />
           </div>
@@ -43,16 +44,16 @@ const Home: React.FC = () => {
             <svg
               className="features__icon--svg"
               width="50"
-              height="65"
+              height="50"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
             >
               <path d="M 30 20 C 24.477 20 20 24.477 20 30 L 20 220 C 20 225.523 24.477 230 30 230 L 210 230 C 215.523 230 220 225.523 220 220 L 220 30 C 220 24.477 215.523 20 210 20 L 30 20 z M 250 20 C 244.477 20 240 24.477 240 30 C 240 35.523 244.477 40 250 40 L 460 40 C 465.522 40 470 35.523 470 30 C 470 24.477 465.522 20 460 20 L 250 20 z M 40 40 L 200 40 L 200 210 L 40 210 L 40 40 z M 120 70 C 114.477 70 110 74.477 110 80 L 110 110 L 80 110 C 74.477 110 70 114.477 70 120 C 70 125.523 74.477 130 80 130 L 110 130 L 110 160 C 110 165.523 114.477 170 120 170 C 125.523 170 130 165.523 130 160 L 130 130 L 160 130 C 165.523 130 170 125.523 170 120 C 170 114.477 165.523 110 160 110 L 130 110 L 130 80 C 130 74.477 125.523 70 120 70 z M 250 110 C 244.477 110 240 114.477 240 120 C 240 125.523 244.477 130 250 130 L 430 130 C 435.522 130 440 125.523 440 120 C 440 114.477 435.522 110 430 110 L 250 110 z M 250 210 C 244.477 210 240 214.477 240 220 C 240 225.523 244.477 230 250 230 L 490 230 C 495.522 230 500 225.523 500 220 C 500 214.477 495.522 210 490 210 L 250 210 z M 30 290 C 24.477 290 20 294.478 20 300 L 20 490 C 20 495.522 24.477 500 30 500 L 210 500 C 215.523 500 220 495.522 220 490 L 220 300 C 220 294.478 215.523 290 210 290 L 30 290 z M 250 290 C 244.477 290 240 294.478 240 300 C 240 305.522 244.477 310 250 310 L 460 310 C 465.522 310 470 305.522 470 300 C 470 294.478 465.522 290 460 290 L 250 290 z M 40 310 L 200 310 L 200 480 L 40 480 L 40 310 z M 169.71484 360.00391 C 167.7894 360.05687 165.85916 360.66509 164.17578 361.87109 L 89.642578 415.26758 L 78.792969 395.23633 C 76.162969 390.38033 70.093328 388.57403 65.236328 391.20703 C 60.380328 393.83803 58.576031 399.90667 61.207031 404.76367 L 77.457031 434.76367 C 80.321031 440.05167 87.183219 441.63291 92.074219 438.12891 L 175.82422 378.12891 C 180.31422 374.91291 181.34591 368.66578 178.12891 364.17578 C 176.11891 361.37016 172.92392 359.91563 169.71484 360.00391 z M 250 380 C 244.477 380 240 384.478 240 390 C 240 395.522 244.477 400 250 400 L 430 400 C 435.522 400 440 395.522 440 390 C 440 384.478 435.522 380 430 380 L 250 380 z M 250 480 C 244.477 480 240 484.478 240 490 C 240 495.522 244.477 500 250 500 L 490 500 C 495.522 500 500 495.522 500 490 C 500 484.478 495.522 480 490 480 L 250 480 z"></path>
-            </svg>{' '}
+            </svg>
           </div>
           <div className="features__text">
             <h3>Surveys</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <p>Create surveys to better understand the team's mood.</p>
           </div>
         </div>
         <div className="features__card">
@@ -69,7 +70,7 @@ const Home: React.FC = () => {
           </div>
           <div className="features__text">
             <h3>Ideas</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <p>Any team member can propose, upvote, and discuss new ideas.</p>
           </div>
         </div>
         <div className="features__card">
@@ -86,7 +87,7 @@ const Home: React.FC = () => {
           </div>
           <div className="features__text">
             <h3>Feedback</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <p>Request and provide suggestions on how you can work better.</p>
           </div>
         </div>
       </section>
