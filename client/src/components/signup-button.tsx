@@ -1,13 +1,14 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useAuth0 } from '@auth0/auth0-react';
-import Button from './button/button';
+import '../pages/home/home.css';
 
-const SignupButton: React.FC = () => {
+const SignupButton: React.FC = (props) => {
   const { loginWithRedirect } = useAuth0();
   return (
-    <Button type="secondary" onClick={() => loginWithRedirect({ screen_hint: 'signup' })}>
+    <button onClick={() => loginWithRedirect({ screen_hint: 'signup' })} className="signup-button">
       Signup
-    </Button>
+    </button>
   );
 };
 

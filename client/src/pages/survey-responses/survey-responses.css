@@ -6,3 +6,7 @@
   padding: 1rem;
   width: 90%;
 }
+.dashboard__chart {
+  height: 400px;
+  width: 100%;
+}

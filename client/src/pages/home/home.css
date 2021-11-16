@@ -11,7 +11,9 @@
   background-attachment: fixed;
   background-size: 160% 160%;
   position: relative;
+  pointer-events: none;
   width: 100%;
+  z-index: 1;
 }
 
 @keyframes gradient {
@@ -43,8 +45,8 @@
 }
 .hero .hero__image {
   height: 100%;
-  mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-  transform: matrix(-1, 0, 0, 1, 0, 0);
+  mask-image: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  /* transform: matrix(-1, 0, 0, 1, 0, 0); */
 }
 
 .curve {
@@ -55,7 +57,50 @@
 }
 .wave {
   aspect-ratio: 1200/100;
-  width: 100%;
-  position: absolute;
+  background-repeat: no-repeat;
+  background-position: cover;
   bottom: -20px;
+  position: absolute;
+  width: 100%;
+}
+.features {
+  margin-top: 2rem;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+.features__card {
+  margin: 1rem;
+  padding: 0.5rem;
+  /* background-color: var(--grey-200);
+  border-radius: 0.5rem; */
+}
+.features__icon {
+  stroke: var(--grey-600);
+  fill: var(--grey-600);
+  margin-bottom: 1rem;
+}
+.signup-button {
+  background-color: white;
+  border: none;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  color: var(--primary-800);
+  font-weight: 700;
+  font-family: lato;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  pointer-events: all;
+  transition: all 0.2s ease;
+}
+.signup-button:hover {
+  background-color: var(--primary-bg);
+  color: var(--primary-700);
+  transform: scale(1.1);
+}
+.signup-button:active {
+  transform: scale(1);
 }
