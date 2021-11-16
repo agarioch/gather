@@ -15,6 +15,7 @@ import Replies from '../replies/replies';
 import { useAuth0 } from '@auth0/auth0-react';
 import { ProfilePicture } from '../profile/profile-pictures';
 import { UserContext } from '../../App';
+import useDeletePost from '../../hooks/useDeletePost';
 
 const SURVEY = 'survey';
 
@@ -28,6 +29,7 @@ const PostItem = ({ post }: PostItemProps) => {
   const [actionsOpen, setActionsOpen] = useState(false);
   const { mutate } = usePostUpvote();
   const postStatus = usePostStatus();
+  const postDelete = useDeletePost();
   const { user } = useAuth0();
   const userData = useContext(UserContext);
 
@@ -76,7 +78,6 @@ const PostItem = ({ post }: PostItemProps) => {
   // Check if user has actions for the post (they are the author or a leader)
   const userRole = user && userData[user.email || ''].role;
   const actionsAvailable = post.author_id === user?.email || userRole === 'leader';
-  console.log(post.status);
 
   return (
     <Card type={post.type}>
@@ -164,7 +165,14 @@ const PostItem = ({ post }: PostItemProps) => {
                               </button>
                             </>
                           )}
-                          <button className="post__btn post__btn--modal post__btn--error">
+                          <button
+                            className="post__btn post__btn--modal post__btn--error"
+                            onClick={(e) => {
+                              console.log('DELETING');
+                              postDelete.mutate(post._id);
+                              setActionsOpen(false);
+                            }}
+                          >
                             <i className="fas fa-trash fa-sm"></i>&nbsp; Delete Post
                           </button>
                         </div>

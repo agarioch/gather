@@ -67,3 +67,8 @@ export function postStatus(id: string, status: string) {
     body: JSON.stringify({ status: status }),
   });
 }
+export function deletePost(id: string) {
+  return fetchRequest(`/posts/${id}`, {
+    method: 'DELETE',
+  });
+}

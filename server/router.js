@@ -12,6 +12,7 @@ const {
   getUser,
   addResponse,
   addStatus,
+  deletePost,
 } = require('./controllers/survey.controller');
 
 const router = Router();
@@ -30,6 +31,7 @@ router.post('/posts/:id/reply', addReply);
 router.post('/posts/:id/status', addStatus);
 router.post('/posts/:id/submit', addResponse, addAnswer);
 router.get('/posts/:id/responses', getSurveyAnswers);
+router.delete('/posts/:id', deletePost);
 router.get('/responses', getAllAnswers);
 router.get('/users', getAllUsers);
 router.get('/users/:email', getUser);

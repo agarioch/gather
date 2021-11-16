@@ -60,7 +60,6 @@ async function addStatus(req, res) {
   try {
     const { id } = req.params;
     const { status } = req.body;
-    console.log(status);
     const queryRes = await Post.findByIdAndUpdate(id, { status: status });
     res.status(201);
     res.send(JSON.stringify(queryRes));
@@ -90,6 +89,18 @@ async function addResponse(req, res, next) {
     const { user_id } = req.body;
     await Post.findByIdAndUpdate(id, { $addToSet: { respondees: user_id } });
     next();
+  } catch (error) {
+    console.error(error);
+    res.status(500);
+    res.end();
+  }
+}
+async function deletePost(req, res) {
+  try {
+    const { id } = req.params;
+    await Post.findByIdAndDelete(id);
+    res.status(204);
+    res.end();
   } catch (error) {
     console.error(error);
     res.status(500);
@@ -169,6 +180,7 @@ module.exports = {
   addReply,
   addStatus,
   addPost,
+  deletePost,
   addResponse,
   addAnswer,
   getAllAnswers,
