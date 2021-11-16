@@ -99,7 +99,7 @@ const PostItem = ({ post }: PostItemProps) => {
             <div className="post__badges">
               {typeIconClass}
               {responded && (
-                <p className="post__badge-success">
+                <p className="post__badge post__badge--success">
                   <i className="fas fa-check"></i> &nbsp; you responded
                 </p>
               )}

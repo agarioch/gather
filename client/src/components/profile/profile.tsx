@@ -8,7 +8,7 @@ const Profile: React.FC = () => {
   if (user) {
     return (
       <div className="profile">
-        <ProfilePicture email={user?.email || 'anon'} />
+        <ProfilePicture email={user?.email || 'anon'} size="large" />
       </div>
     );
   } else {
