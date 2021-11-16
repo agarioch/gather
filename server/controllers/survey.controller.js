@@ -56,6 +56,20 @@ async function addReply(req, res) {
     res.end();
   }
 }
+async function addStatus(req, res) {
+  try {
+    const { id } = req.params;
+    const status = req.body;
+    const queryRes = await Post.findByIdAndUpdate(id, { status: status });
+    res.status(201);
+    res.send(JSON.stringify(queryRes));
+    res.end();
+  } catch (error) {
+    console.error(error);
+    res.status(500);
+    res.end();
+  }
+}
 async function addPost(req, res) {
   try {
     const post = req.body;
@@ -152,6 +166,7 @@ module.exports = {
   getPost,
   upvotePost,
   addReply,
+  addStatus,
   addPost,
   addResponse,
   addAnswer,

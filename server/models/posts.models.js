@@ -26,17 +26,4 @@ const PostSchema = new mongoose.Schema({
   respondees: [String],
 });
 
-PostSchema.methods.getAll = function () {
-  return this.find();
-};
-PostSchema.methods.getPost = function (id) {
-  return this.findById(id);
-};
-PostSchema.methods.upvotePost = function (id) {
-  return this.findByIdAndUpdate(id, { $inc: { votes: 1 } });
-};
-PostSchema.methods.addPost = function (post) {
-  return this.create(post);
-};
-
 module.exports = mongoose.model('Post', PostSchema);

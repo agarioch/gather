@@ -10,15 +10,6 @@ import PieChart from '../../components/pie-chart/pie-chart';
 import { UserContext } from '../../App';
 import Loader from '../../components/loader/loader';
 
-type User = {
-  name: string;
-  picture: string;
-  role: string;
-};
-type Users = {
-  [email: string]: User;
-};
-
 function countAnswers(options: string[], answers: string[]) {
   const countArr = [];
   for (let option of options) {
@@ -33,7 +24,7 @@ const SurveyResponses = () => {
   // get detail of surveys
   const postQuery = useGetPost(id);
   // get details of all users, not just respondees
-  const users: Users = useContext(UserContext);
+  const users = useContext(UserContext);
   // get survey answers ...
   const responsesQuery = useGetSurveyResponses(id);
 
@@ -43,7 +34,6 @@ const SurveyResponses = () => {
   const respondees = postQuery.isSuccess ? postQuery.data.respondees : [];
   // Store questions from posts query
   const questions = postQuery.isSuccess && postQuery.data.survey ? postQuery.data.survey : [];
-  console.log(questions);
   // Get selected question ID (default first question)
   const selectedQuestionId = questions[selectedQuestion]?._id;
   const selectedOptions = questions[selectedQuestion]?.options
@@ -75,21 +65,23 @@ const SurveyResponses = () => {
           </div>
 
           <div className="dashboard__card">
-            <h3 className="dashboard__title">Users</h3>
+            <h3 className="dashboard__title">Team</h3>
             <div className="dashboard__users">
               <ul className="fa-ul">
-                {Object.keys(users).map((key) => (
-                  <li>
-                    <span className="fa-li">
-                      {respondees?.includes(key) ? (
-                        <i className="fas fa-sm fa-check-circle dashboard__done"></i>
-                      ) : (
-                        <i className="far fa-sm fa-circle dashboard__pending"></i>
-                      )}
-                    </span>
-                    {users[key].name} <span className="dashboard__email">{key}</span>
-                  </li>
-                ))}
+                {Object.keys(users)
+                  .sort((a, b) => (users[b].name > users[a].name ? -1 : 1))
+                  .map((key) => (
+                    <li key={key}>
+                      <span className="fa-li">
+                        {respondees?.includes(key) ? (
+                          <i className="fas fa-sm fa-check-circle dashboard__done"></i>
+                        ) : (
+                          <i className="far fa-sm fa-circle dashboard__pending"></i>
+                        )}
+                      </span>
+                      {users[key].name} <span className="dashboard__email">{key}</span>
+                    </li>
+                  ))}
               </ul>
             </div>
           </div>

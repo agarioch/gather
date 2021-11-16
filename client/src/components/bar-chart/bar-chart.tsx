@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react';
-import { Bar, BarGroup } from '@visx/shape';
 import { Group } from '@visx/group';
 import { Text } from '@visx/text';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { scaleBand, scaleLinear } from '@visx/scale';
 import './bar-chart.css';
 

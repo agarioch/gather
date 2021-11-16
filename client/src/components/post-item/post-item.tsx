@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
 import { formatDistanceToNow, parseISO, isValid } from 'date-fns';
@@ -11,6 +11,7 @@ import ReplyForm from '../reply-form/reply-form';
 import Replies from '../replies/replies';
 import { useAuth0 } from '@auth0/auth0-react';
 import { ProfilePicture } from '../profile/profile-pictures';
+import { UserContext } from '../../App';
 
 const SURVEY = 'survey';
 
@@ -23,6 +24,7 @@ const PostItem = ({ post }: PostItemProps) => {
   const [replying, setReplying] = useState(false);
   const { mutate } = usePostUpvote();
   const { user } = useAuth0();
+  const userData = useContext(UserContext);
 
   const handleReply = () => {
     setExpanded(true);
@@ -133,6 +135,12 @@ const PostItem = ({ post }: PostItemProps) => {
               <Link to={`/survey/${post._id}/responses`}>
                 <button className="post__actions--btn">View responses</button>
               </Link>
+            </span>
+          )}
+          {/* TODO: check if user is */}
+          {post.type !== SURVEY && (
+            <span>
+              <button className="post__actions--btn">Actions</button>
             </span>
           )}
 

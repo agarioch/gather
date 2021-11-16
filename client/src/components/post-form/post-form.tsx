@@ -1,7 +1,7 @@
 import React from 'react';
-import { useAuth0, User } from '@auth0/auth0-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Button from '../button/button';
 import usePostPost from '../../hooks/usePostPost';
 import './post-form.css';

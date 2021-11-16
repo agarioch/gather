@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import Card from '../../components/card/card';
 import Loader from '../../components/loader/loader';
 import useGetPost from '../../hooks/useGetPost';
 import SurveyForm from '../../components/survey-form/survey-form';
-import { Post } from '../../types';
 import './survey-page.css';
 
 const SurveyPage = () => {
   const { id } = useParams<{ id: string }>();
   const postQuery = useGetPost(id);
-  console.log(postQuery.data);
   if (!id) {
     return <h1>Create a new survey</h1>;
   }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useForm, useFieldArray, useWatch } from 'react-hook-form';
+import { useForm, useFieldArray } from 'react-hook-form';
 import { useAuth0 } from '@auth0/auth0-react'
 import { v4 as uuidv4 } from 'uuid';
 import classNames from 'classnames';

@@ -15,7 +15,16 @@ import Responses from './pages/responses/responses';
 import SurveyResponses from './pages/survey-responses/survey-responses';
 import useGetUsers from './hooks/useGetUsers';
 
-export const UserContext = React.createContext({});
+type User = {
+  name: string;
+  picture: string;
+  role: string;
+};
+type Users = {
+  [email: string]: User;
+};
+
+export const UserContext = React.createContext<Users>({});
 
 function App() {
   const usersQuery = useGetUsers();
