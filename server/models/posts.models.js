@@ -24,6 +24,7 @@ const PostSchema = new mongoose.Schema({
   survey: [Survey],
   date: String,
   respondees: [String],
+  status: String,
 });
 
 module.exports = mongoose.model('Post', PostSchema);

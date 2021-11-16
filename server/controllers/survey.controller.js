@@ -59,7 +59,8 @@ async function addReply(req, res) {
 async function addStatus(req, res) {
   try {
     const { id } = req.params;
-    const status = req.body;
+    const { status } = req.body;
+    console.log(status);
     const queryRes = await Post.findByIdAndUpdate(id, { status: status });
     res.status(201);
     res.send(JSON.stringify(queryRes));

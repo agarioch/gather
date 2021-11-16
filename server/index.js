@@ -16,7 +16,6 @@ const checkJwt = auth({
   audience: 'http://localhost:5000',
   issuerBaseURL: 'https://dev-a0zzgovu.us.auth0.com/',
 });
-
 app.use(cors());
 app.use(morgan('short'));
 app.use(helmet());

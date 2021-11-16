@@ -60,3 +60,10 @@ export function getUsers() {
 export function getUser(email: string) {
   return fetchRequest(`/users/${email}`);
 }
+export function postStatus(id: string, status: string) {
+  return fetchRequest(`/posts/${id}/status`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ status: status }),
+  });
+}

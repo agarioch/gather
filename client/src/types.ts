@@ -12,6 +12,7 @@ export type PostReq = {
   survey?: Survey[];
   date?: string;
   respondees?: string[];
+  status?: string;
   [key: string]: any;
 };
 export type Survey = {

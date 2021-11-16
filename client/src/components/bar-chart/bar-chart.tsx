@@ -59,7 +59,7 @@ const BarChart = ({ width, height, data = [], events = false }: BarsProps) => {
           const barX = xScale(option);
           const barY = yMax - barHeight;
           return (
-            <Group>
+            <Group key={i}>
               <motion.rect
                 key={`bar-${option}`}
                 x={barX}

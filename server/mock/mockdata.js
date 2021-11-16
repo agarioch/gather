@@ -148,7 +148,7 @@ const mockUsers = {
     picture:
       'https://avatars.githubusercontent.com/u/20269655?s=400&u=45929ca38ef71a1bee0922ccc3a42de33ed9d5c9&v=4',
     name: 'Alistair',
-    role: 'user',
+    role: 'leader',
   },
 };
 
