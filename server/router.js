@@ -13,6 +13,7 @@ const {
   addResponse,
   addStatus,
   deletePost,
+  patchUserVotes,
 } = require('./controllers/survey.controller');
 
 const router = Router();
@@ -26,7 +27,7 @@ router.get('/', (req, res) => res.end('send requests to posts'));
 router.get('/posts', getAllPosts);
 router.post('/posts', addPost);
 router.get('/posts/:id', getPost);
-router.patch('/posts/:id/upvote', upvotePost);
+router.post('/posts/:id/upvote', patchUserVotes, upvotePost);
 router.post('/posts/:id/reply', addReply);
 router.post('/posts/:id/status', addStatus);
 router.post('/posts/:id/submit', addResponse, addAnswer);

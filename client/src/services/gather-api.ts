@@ -22,9 +22,11 @@ export function getPosts() {
 export function getPost(id: string) {
   return fetchRequest(`/posts/${id}`);
 }
-export function postUpvote(id: string) {
+export function postUpvote(id: string, email: string) {
   return fetchRequest(`/posts/${id}/upvote`, {
-    method: 'PATCH',
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email }),
   });
 }
 export function postReply(id: string, reply: Reply) {

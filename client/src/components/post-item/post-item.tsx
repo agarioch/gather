@@ -87,7 +87,11 @@ const PostItem = ({ post }: PostItemProps) => {
           <motion.div whileHover="hover" whileTap="tap" className="post__votes--wrapper">
             <motion.button
               className="post__votes"
-              onClick={(e) => mutate(post._id)}
+              onClick={(e) => {
+                if (user && userData[user.email || ''].votes > 0) {
+                  mutate({ postId: post._id, email: user?.email || 'unkown' });
+                }
+              }}
               variants={upvoteButton}
             >
               <motion.i className="fas fa-chevron-up" variants={upvoteIcon}></motion.i>

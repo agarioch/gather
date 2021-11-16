@@ -31,3 +31,12 @@
   align-items: center;
   display: flex;
 }
+.sidebar__votes {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.sidebar__info {
+  color: var(--grey-600);
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}

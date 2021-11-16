@@ -113,42 +113,50 @@ const mockUsers = {
     picture: 'https://randomuser.me/api/portraits/women/90.jpg',
     name: 'Emma',
     role: 'leader',
+    votes: 10,
   },
   'olivia@example.com': {
     picture: 'https://randomuser.me/api/portraits/women/21.jpg',
     name: 'Olivia',
     role: 'user',
+    votes: 10,
   },
   'ava@example.com': {
     picture: 'https://randomuser.me/api/portraits/women/72.jpg',
     name: 'Ava',
     role: 'user',
+    votes: 10,
   },
   'charlotte@example.com': {
     picture: 'https://randomuser.me/api/portraits/women/18.jpg',
     name: 'Charlotte',
     role: 'user',
+    votes: 10,
   },
   'liam@example.com': {
     picture: 'https://randomuser.me/api/portraits/men/44.jpg',
     name: 'Liam',
     role: 'user',
+    votes: 10,
   },
   'noah@example.com': {
     picture: 'https://randomuser.me/api/portraits/men/49.jpg',
     name: 'Noah',
     role: 'user',
+    votes: 10,
   },
   'oliver@example.com': {
     picture: 'https://randomuser.me/api/portraits/men/1.jpg',
     name: 'Oliver',
     role: 'user',
+    votes: 10,
   },
   'alistairgarioch@gmail.com': {
     picture:
       'https://avatars.githubusercontent.com/u/20269655?s=400&u=45929ca38ef71a1bee0922ccc3a42de33ed9d5c9&v=4',
     name: 'Alistair',
     role: 'leader',
+    votes: 10,
   },
 };
 

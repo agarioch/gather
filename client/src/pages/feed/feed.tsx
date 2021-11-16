@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useAuth0 } from '@auth0/auth0-react';
 import './feed.css';
 import useGetPosts from '../../hooks/useGetPosts';
 import Button from '../../components/button/button';
@@ -8,10 +9,12 @@ import Loader from '../../components/loader/loader';
 import PostForm from '../../components/post-form/post-form';
 import { Post } from '../../types';
 import NavButton from '../../components/button/nav-button';
+import { UserContext } from '../../App';
 
 const Feed: React.FC = () => {
   const [posting, setPosting] = useState(false);
   const [sortType, setSortType] = useState('votes');
+  const { user } = useAuth0();
   const postsQuery = useGetPosts();
 
   const handleCancelPosting = () => setPosting(false);
@@ -74,6 +77,35 @@ const Feed: React.FC = () => {
             </li>
           </ul>
         </div>
+        {user && user.email && (
+          <div className="sidebar__actions">
+            <p>Remaining votes</p>
+            <UserContext.Consumer>
+              {(users) => (
+                <AnimatePresence>
+                  <motion.h3
+                    initial={{ x: '-100%', opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: '100%', opacity: 0 }}
+                    className="sidebar__votes"
+                  >
+                    {users[user.email || ''].votes}
+                  </motion.h3>
+                  <p className="sidebar__info">
+                    <i
+                      className="fas fa-info fa-sm fa-pull-left"
+                      style={{ marginTop: '.3rem', marginRight: '.3rem' }}
+                    ></i>
+                    Each team member has 10 votes per week to vote for the ideas they like
+                  </p>
+                  <p className="sidebar__info">
+                    e.g. vote for 10 ideas once or vote for one idea 10 times
+                  </p>
+                </AnimatePresence>
+              )}
+            </UserContext.Consumer>
+          </div>
+        )}
       </section>
     </main>
   );

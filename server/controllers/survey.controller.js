@@ -172,6 +172,17 @@ async function getUser(req, res) {
     res.end();
   }
 }
+async function patchUserVotes(req, res, next) {
+  try {
+    const { email } = req.body;
+    await mockDb.User.decrVotes(email);
+    next();
+  } catch (error) {
+    console.error(error);
+    res.status(500);
+    res.end();
+  }
+}
 
 module.exports = {
   getAllPosts,
@@ -187,4 +198,5 @@ module.exports = {
   getSurveyAnswers,
   getAllUsers,
   getUser,
+  patchUserVotes,
 };

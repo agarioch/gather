@@ -57,5 +57,9 @@ db.User.getUser = (email) => {
   return Promise.resolve(mockUsers[email]);
 };
 db.User.getAll = () => Promise.resolve(mockUsers);
+db.User.decrVotes = (email) => {
+  mockUsers[email].votes--;
+  return Promise.resolve(mockUsers[email]);
+};
 
 module.exports = db;

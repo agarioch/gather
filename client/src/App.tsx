@@ -19,6 +19,7 @@ type User = {
   name: string;
   picture: string;
   role: string;
+  votes: number;
 };
 type Users = {
   [email: string]: User;
